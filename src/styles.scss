@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+$Raleway: 'Raleway';
+/* Regular */
+@font-face {
+  font-family: $Raleway;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway Regular'), local('Raleway-Regular'), url(./assets/fonts/Raleway-Regular.ttf) format('ttf');
+}
+/* Light */
+@font-face {
+  font-family: $Raleway;
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(./assets/fonts/Raleway-Light.ttf) format('ttf');
+}
+/* Bold */
+@font-face {
+  font-family: $Raleway;
+  font-style: normal;
+  font-weight: 700;
+  src: local('Raleway Bold'), local('Raleway-Bold'), url(./assets/fonts/Raleway-Bold.ttf) format('ttf');
+}
+/* Black */
+@font-face {
+  font-family: $Raleway;
+  font-style: normal;
+  font-weight: 900;
+  src: local('Raleway Black'), local('Raleway-Black'), url(./assets/fonts/Raleway-Black.ttf) format('ttf');
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  font-family: $Raleway,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+hr {
+  max-width: 50px;
+  border: 2px #343a40 solid;
+}
+hr.light {
+  border-color: #fff;
+}
+
+input:focus, button:focus {
+  outline: 0!important;
+  box-shadow: none!important;
+}
+input, button {
+  border-radius: 0!important;
+}
