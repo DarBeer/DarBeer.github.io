@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ArticlesComponent } from './articles/articles.component';
-import { DescriptionsComponent } from './descriptions/descriptions.component';
+import { HistoryComponent } from './history/history.component';
 import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
 
@@ -16,7 +16,7 @@ import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
         AppComponent,
         HomeComponent,
         ArticlesComponent,
-        DescriptionsComponent,
+        HistoryComponent,
         ImageGalleryComponent,
         VideoGalleryComponent
   ],
