@@ -50,3 +50,57 @@ input:focus, button:focus {
 input, button {
   border-radius: 0!important;
 }
+
+header.masthead {
+  margin-bottom: 50px;
+  position: relative;
+  -webkit-background-size: cover!important;
+  -moz-background-size: cover!important;
+  -o-background-size: cover!important;
+  background-size: cover!important;
+}
+header.masthead .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #212529;
+  opacity: .6;
+}
+header.masthead .page-heading, header.masthead .site-heading {
+  text-align: center;
+}
+header.masthead .site-heading {
+  padding: 200px 0;
+  color: #fff;
+}
+header.masthead .page-heading, header.masthead .post-heading {
+  padding: 100px 0;
+  color: #fff;
+}
+header.masthead .page-heading h1 {
+  font-size: 30px;
+  margin-top: 0;
+}
+header.masthead .site-heading h1 {
+  font-size: 50px;
+  margin-top: 0;
+}
+@media only screen and (min-width: 768px) {
+  header.masthead .page-heading h1 {
+    font-size: 50px;
+  }
+  header.masthead .site-heading h1 {
+    font-size: 70px;
+  }
+}
+
+header.masthead .page-heading .subheading, header.masthead .site-heading .subheading {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.1;
+  display: block;
+  margin: 10px 0 0;
+  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif;
+}

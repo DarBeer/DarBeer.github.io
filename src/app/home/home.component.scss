@@ -1,9 +1,3 @@
-.header {
-  height: 50vh;
-  min-height: 300px;
-  background: url("../../assets/img/header.jpg") center center no-repeat scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+header.masthead {
+  background: #868e96 url("../../assets/img/header-home.jpg") center center no-repeat scroll;
 }
