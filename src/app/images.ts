@@ -1,5 +1,7 @@
-import { Image } from './image';
-
+export class Image {
+    id: number;
+    name: string;
+}
 export const IMAGES: Image[] = [
     { id: 1, name: '../../assets/img/1.jpg' },
     { id: 2, name: '../../assets/img/2.jpg' },

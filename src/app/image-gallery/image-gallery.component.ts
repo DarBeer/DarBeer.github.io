@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Image } from '../image'
-import { ImageService } from "../image.service";
+import { IMAGES } from '../images';
 
 @Component({
     selector: 'app-image-gallery',
@@ -10,17 +9,15 @@ import { ImageService } from "../image.service";
 })
 export class ImageGalleryComponent implements OnInit {
 
-    images: Image[];
+    heading = 'Галерея Экспонатов';
+    subheading = 'Фотографии и их поиск';
 
-    constructor( private imageService: ImageService) { }
+    images = IMAGES;
+
+    constructor() { }
 
     ngOnInit() {
-        this.getImages();
-    }
 
-    getImages(): void {
-        this.imageService.getImages()
-            .subscribe(images => this.images = images);
     }
 
 }
