@@ -32,65 +32,10 @@
 
 <!-- Image List -->
 <div class="container-fluid p-0">
-    <div class="row no-gutters popup-gallery">
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/1.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/1.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/2.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/2.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/3.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/3.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/4.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/4.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/5.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/5.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/6.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/6.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/1.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/1.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/2.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/2.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/3.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/3.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/4.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/4.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/5.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/5.jpg">
-            </a>
-        </div>
-        <div class="col-lg-3 col-sm-4">
-            <a class="portfolio-box" href="../../assets/img/6.jpg">
-                <img alt="" class="img-fluid" src="../../assets/img/6.jpg">
+    <div class="row no-gutters popup-gallery" >
+        <div class="col-lg-3 col-sm-4" *ngFor="let image of images">
+            <a class="portfolio-box" href="{{image.name}}">
+                <img alt="" class="img-fluid" id="{{image.id}}" src="{{image.name}}">
             </a>
         </div>
     </div>
