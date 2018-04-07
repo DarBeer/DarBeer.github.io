@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-    title = 'app';
+    title = 'Дипломный Проект';
+    home = 'Главная';
+    history = 'История';
+    articles = 'Статьи';
+    image_gallery = 'Галерея';
+    video_gallery = 'Видео'
 }
