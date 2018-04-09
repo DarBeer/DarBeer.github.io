@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IMAGES } from '../images';
+import { IMAGES } from '../../data/images';
 
 @Component({
     selector: 'app-image-gallery',
@@ -17,7 +17,6 @@ export class ImageGalleryComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-
     }
 
 }
