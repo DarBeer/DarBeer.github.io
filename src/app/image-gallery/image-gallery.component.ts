@@ -28,12 +28,8 @@ export class ImageGalleryComponent implements OnInit {
     ngOnInit() {
     }
 
-    onSelect(slideId: string): void {
-        console.log(slideId)
-    }
-    /*
     onSelect(image: Image): void {
         this.selectedImage = image;
-    }*/
+    }
 
 }
