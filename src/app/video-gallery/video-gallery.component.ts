@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { VIDEO } from '../../data/videos';
+import {Video, VIDEO} from '../../data/videos';
+
+import { NgbModal, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-video-gallery',
@@ -13,11 +15,22 @@ export class VideoGalleryComponent implements OnInit {
     subheading = 'Одобрено роскомнадзором';
 
     videos = VIDEO;
+    selectedVideo: Video;
 
-    constructor() { }
-
+    constructor(private modalService: NgbModal, config: NgbCarouselConfig) {
+        config.interval = 0;
+    }
     ngOnInit() {
 
+    }
+
+    openVideo(content) {
+        this.modalService.open(content, { centered: true, size: 'lg' });
+    }
+
+
+    OnSelect(video: Video): void {
+        this.selectedVideo = video;
     }
 
 }
