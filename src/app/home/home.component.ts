@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DataService } from "../data.service";
+import { DataService } from '../data.service';
 
 @Component({
     selector: 'app-home',
@@ -12,8 +12,9 @@ export class HomeComponent implements OnInit {
     heading = 'Виртуальный Музей';
     subheading = 'Учреждения образования средней школы №2 г. Бобруйска';
 
+    dataService = DataService;
+
     constructor() {
-        //console.log(this._data.lastData.)
     }
 
     ngOnInit() {

@@ -35,7 +35,7 @@
     <div class="row no-gutters popup-gallery" >
         <div class="col-lg-3 col-sm-4" *ngFor="let image of images"  (click)="onSelect(image)" >
             <a class="portfolio-box" (click)="openImage(content)">
-                <img alt="" class="img-fluid" id="{{image.id}}" src="{{image.url}}">
+                <img alt="" class="img-fluid" id="{{image.id}}" src="{{image.urlImage}}">
             </a>
         </div>
     </div>
@@ -48,7 +48,7 @@
         </button>
     </div>
     <div class="modal-body" *ngIf="selectedImage"  >
-        <img class="img-carousel" src="{{selectedImage.url}}">
+        <img class="img-carousel" src="{{selectedImage.urlImage}}">
     </div>
     <div class="modal-footer">
         <h4 class="modal-title">Modal title</h4>
