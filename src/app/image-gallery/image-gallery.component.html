@@ -50,7 +50,7 @@
     <div class="modal-body image-modal" *ngIf="selectedImage"  >
         <img class="img-preview" src="{{selectedImage.urlImage}}">
     </div>
-    <div class="modal-footer image-modal">
+    <div class="modal-footer image-modal" *ngIf="selectedImage">
         <h4 class="modal-title">Modal title</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ligula id libero posuere ullamcorper quis id lorem. Etiam non nunc nec erat accumsan fermentum id et lorem.</p>
         <p class="date-footnote">Опубликовано: {{selectedImage.date}}</p>
