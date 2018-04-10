@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     subheading = 'Учреждения образования средней школы №2 г. Бобруйска';
 
     constructor() {
-
+        //console.log(this._data.lastData.)
     }
 
     ngOnInit() {
