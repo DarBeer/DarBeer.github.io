@@ -1,19 +1,20 @@
 export class Video {
     id: number;
-    name: string;
+    urlImage: string;
+    urlVideo: string;
 }
 
 export const VIDEO: Video[] = [
-    { id: 0, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 1, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 2, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 3, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 4, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 5, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 6, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 7, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 8, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 9, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 10, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' },
-    { id: 11, name: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg' }
+    { id: 0, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 1, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 2, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 3, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 4, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 5, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 6, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 7, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 8, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 9, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 10, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'},
+    { id: 11, urlImage: 'https://i.ytimg.com/vi/1yvZKSBiuq4/maxresdefault.jpg', urlVideo: 'https://www.youtube.com/watch?v=oC4q3lA3Dbc'}
 ];
