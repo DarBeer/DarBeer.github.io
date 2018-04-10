@@ -12,7 +12,7 @@ import { NgbModal, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class VideoGalleryComponent implements OnInit {
 
     heading = 'Видео Галерея';
-    subheading = 'Одобрено роскомнадзором';
+    subheading = 'Одобрено Роскомнадзором';
 
     videos = VIDEO;
     selectedVideo: Video;
