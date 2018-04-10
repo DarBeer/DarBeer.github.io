@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -22,9 +23,10 @@ import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
   ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NgbModule.forRoot()
   ],
-    providers: [],
+    providers: [NgbCarouselConfig],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
