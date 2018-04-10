@@ -13,6 +13,16 @@
     </div>
 </header>
 
+<div class="container-fluid p-0">
+    <div class="row no-gutters popup-gallery" >
+        <div class="col-lg-3 col-sm-4" *ngFor="let video of videos">
+            <a class="portfolio-box" href="{{video.name}}">
+                <img alt="" class="img-fluid" id="{{video.id}}" src="{{video.name}}">
+            </a>
+        </div>
+    </div>
+</div>
+
 <p>
   video-gallery works!
 </p>

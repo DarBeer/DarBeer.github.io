@@ -2,6 +2,7 @@ export class Image {
     id: number;
     name: string;
 }
+
 export const IMAGES: Image[] = [
     { id: 0, name: '../../assets/img/1.jpg' },
     { id: 1, name: '../../assets/img/2.jpg' },
