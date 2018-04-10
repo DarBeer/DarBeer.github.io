@@ -13,16 +13,46 @@
     </div>
 </header>
 
+<!-- Search Filter -->
+<div class="container search">
+    <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">У нас есть прям всё!</h2>
+            <hr class="my-4">
+            <p class="text-faded mb-4">Хотите найти определённый экспонат? Воспользуйтесь поиском</p>
+            <form action="" class="input-group">
+                <input type="text" class="form-control" placeholder="Найти...">
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Image List -->
 <div class="container-fluid p-0">
     <div class="row no-gutters popup-gallery" >
-        <div class="col-lg-3 col-sm-4" *ngFor="let video of videos">
-            <a class="portfolio-box" href="{{video.name}}">
-                <img alt="" class="img-fluid" id="{{video.id}}" src="{{video.name}}">
+        <div class="col-lg-3 col-sm-4" *ngFor="let video of videos"  (click)="OnSelect(video)" >
+            <a class="portfolio-box" (click)="openVideo(content)">
+                <img alt="" class="img-fluid" id="{{video.id}}" src="{{video.urlImage}}">
             </a>
         </div>
     </div>
 </div>
 
-<p>
-  video-gallery works!
-</p>
+<!-- Modal -->
+<ng-template #content let-c="close" let-d="dismiss" >
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" *ngIf="selectedVideo"  >
+        <img class="img-carousel" src="{{selectedVideo.urlImage}}">
+    </div>
+    <div class="modal-footer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ligula id libero posuere ullamcorper quis id lorem. Etiam non nunc nec erat accumsan fermentum id et lorem.
+    </div>
+</ng-template>
