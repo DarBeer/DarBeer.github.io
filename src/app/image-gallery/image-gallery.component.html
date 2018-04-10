@@ -43,7 +43,6 @@
 
 <ng-template #content let-c="close" let-d="dismiss" >
     <div class="modal-header">
-        <h4 class="modal-title">Modal title</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -52,6 +51,7 @@
         <img class="img-carousel" src="{{selectedImage.url}}">
     </div>
     <div class="modal-footer">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ligula id libero posuere ullamcorper quis id lorem. Etiam non nunc nec erat accumsan fermentum id et lorem.
+        <h4 class="modal-title">Modal title</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ligula id libero posuere ullamcorper quis id lorem. Etiam non nunc nec erat accumsan fermentum id et lorem.</p>
     </div>
 </ng-template>
