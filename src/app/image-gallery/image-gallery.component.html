@@ -33,7 +33,7 @@
 <!-- Image List -->
 <div class="container-fluid p-0 image-gallery">
     <div class="row no-gutters popup-gallery" >
-        <div class="col-lg-3 col-sm-4" *ngFor="let image of images"  (click)="onSelect(image)" >
+        <div class="col-lg-3 col-sm-4 col-6" *ngFor="let image of images"  (click)="onSelect(image)" >
             <a class="portfolio-box" (click)="openImage(content)">
                 <img alt="" class="img-fluid" id="{{image.id}}" src="{{image.urlImage}}">
             </a>
@@ -42,16 +42,17 @@
 </div>
 
 <ng-template #content let-c="close" let-d="dismiss" >
-    <div class="modal-header">
+    <div class="modal-header image-modal">
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body" *ngIf="selectedImage"  >
-        <img class="img-carousel" src="{{selectedImage.urlImage}}">
+    <div class="modal-body image-modal" *ngIf="selectedImage"  >
+        <img class="img-preview" src="{{selectedImage.urlImage}}">
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer image-modal">
         <h4 class="modal-title">Modal title</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ligula id libero posuere ullamcorper quis id lorem. Etiam non nunc nec erat accumsan fermentum id et lorem.</p>
+        <p class="date-footnote">Опубликовано: {{selectedImage.date}}</p>
     </div>
 </ng-template>
