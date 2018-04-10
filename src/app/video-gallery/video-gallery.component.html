@@ -50,7 +50,9 @@
         </button>
     </div>
     <div class="modal-body" *ngIf="selectedVideo"  >
-        <iframe width="854" height="480" src="{{selectedVideo.urlVideo}}" frameborder="0" allowfullscreen></iframe>
+        <video width=100% height="480" controls="controls">
+            <source src="{{selectedVideo.urlVideo}}">
+        </video>
     </div>
     <div class="modal-footer">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ligula id libero posuere ullamcorper quis id lorem. Etiam non nunc nec erat accumsan fermentum id et lorem.

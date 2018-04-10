@@ -13,7 +13,13 @@
     </div>
 </header>
 
-<p>home works!</p><p>home works!</p><p>home works!</p><p>home works!</p><p>home works!</p>
+<div class="row no-gutters popup-gallery" >
+    <div class="col-lg-3 col-sm-4" *ngFor="let image of dataService">
+        <a class="portfolio-box" href="{{image.lastDate}}">
+            <img alt="" class="img-fluid" src="{{image.lastDate}}">
+        </a>
+    </div>
+</div>
 
 <div class="container-fluid">
     <div class="row no-gutters" >

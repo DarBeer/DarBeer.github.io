@@ -1,21 +1,21 @@
 export class Image {
     id: number;
-    url: string;
+    urlImage: string;
     data: string;
 
 }
 
 export const IMAGES: Image[] = [
-    { id: 0 ,url: '../../assets/img/1.jpg', data: '10.04.2018'},
-    { id: 1, url: '../../assets/img/2.jpg', data: '10.04.2018' },
-    { id: 2, url: '../../assets/img/3.jpg', data: '10.04.2018' },
-    { id: 3, url: '../../assets/img/4.jpg', data: '10.04.2018' },
-    { id: 4, url: '../../assets/img/5.jpg', data: '10.04.2018' },
-    { id: 5, url: '../../assets/img/6.jpg', data: '10.04.2018' },
-    { id: 6, url: '../../assets/img/1.jpg', data: '10.04.2018' },
-    { id: 7, url: '../../assets/img/2.jpg', data: '10.04.2018' },
-    { id: 8, url: '../../assets/img/3.jpg', data: '10.04.2018' },
-    { id: 9, url: '../../assets/img/4.jpg', data: '10.04.2018' },
-    { id: 10, url: '../../assets/img/5.jpg', data: '10.04.2018' },
-    { id: 11, url: '../../assets/img/6.jpg', data: '10.04.2018'  }
+    { id: 0, urlImage: '../../assets/img/1.jpg', data: '10.04.2018'},
+    { id: 1, urlImage: '../../assets/img/2.jpg', data: '10.04.2018' },
+    { id: 2, urlImage: '../../assets/img/3.jpg', data: '10.04.2018' },
+    { id: 3, urlImage: '../../assets/img/4.jpg', data: '10.04.2018' },
+    { id: 4, urlImage: '../../assets/img/5.jpg', data: '10.04.2018' },
+    { id: 5, urlImage: '../../assets/img/6.jpg', data: '10.04.2018' },
+    { id: 6, urlImage: '../../assets/img/1.jpg', data: '10.04.2018' },
+    { id: 7, urlImage: '../../assets/img/2.jpg', data: '10.04.2018' },
+    { id: 8, urlImage: '../../assets/img/3.jpg', data: '10.04.2018' },
+    { id: 9, urlImage: '../../assets/img/4.jpg', data: '10.04.2018' },
+    { id: 10, urlImage: '../../assets/img/5.jpg', data: '10.04.2018' },
+    { id: 11, urlImage: '../../assets/img/6.jpg', data: '10.04.2018' }
 ];
