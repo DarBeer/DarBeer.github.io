@@ -33,7 +33,7 @@
 <!-- Image List -->
 <div class="container-fluid p-0 video-gallery">
     <div class="row no-gutters popup-gallery" >
-        <div class="col-lg-3 col-sm-4" *ngFor="let video of videos"  (click)="OnSelect(video)" >
+        <div class="col-lg-3 col-sm-4" *ngFor="let video of videos"  (click)="onSelect(video)" >
             <a class="portfolio-box" (click)="openVideo(content)">
                 <img alt="" class="img-fluid" id="{{video.id}}" src="{{video.urlImage}}">
             </a>
@@ -50,7 +50,7 @@
         </button>
     </div>
     <div class="modal-body" *ngIf="selectedVideo"  >
-        <img class="video-carousel" src="{{selectedVideo.urlImage}}">
+        <iframe width="854" height="480" src="{{selectedVideo.urlVideo}}" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="modal-footer">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ligula id libero posuere ullamcorper quis id lorem. Etiam non nunc nec erat accumsan fermentum id et lorem.

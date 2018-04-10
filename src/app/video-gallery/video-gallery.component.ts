@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Video, VIDEO} from '../../data/videos';
+import  {Video, VIDEO } from '../../data/videos';
 
 import { NgbModal, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
@@ -29,7 +29,7 @@ export class VideoGalleryComponent implements OnInit {
     }
 
 
-    OnSelect(video: Video): void {
+    onSelect(video: Video): void {
         this.selectedVideo = video;
     }
 
