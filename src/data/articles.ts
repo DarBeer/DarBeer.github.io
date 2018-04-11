@@ -1,12 +1,10 @@
 export class Articles {
-    name: number;
+    id: number;
     description: string;
     tags: string;
     data: string;
 
 }
-/*
 export const ARTICLES: Articles[] = [
-    { name: '', description: '', tags: '', data: '10.04.2018' }
+    { id: 0, description: '-', tags: '-', data: '10.04.2018' }
 ];
-*/
