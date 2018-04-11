@@ -33,10 +33,12 @@
 <!-- Image List -->
 <div class="container-fluid p-0 image-gallery">
     <div class="row no-gutters popup-gallery" >
-        <div class="col-lg-3 col-sm-4 col-6" *ngFor="let image of images"  (click)="onSelect(image)" >
-            <a class="portfolio-box" (click)="openImage(content)">
-                <img alt="" class="img-fluid" id="{{image.id}}" src="{{image.urlImage}}">
-            </a>
+        <div class="col-lg-3 col-sm-4 col-6 img-hover" *ngFor="let image of images"  (click)="onSelect(image)" >
+            <img alt="" class="img-fluid" id="{{image.id}}" src="{{image.urlImage}}">
+            <div class="img-caption">
+                <h3>{{image.heading}}</h3>
+            </div>
+            <a class="portfolio-box" (click)="openImage(content)"></a>
         </div>
     </div>
 </div>
@@ -51,8 +53,8 @@
         <img class="img-preview" src="{{selectedImage.urlImage}}">
     </div>
     <div class="modal-footer image-modal" *ngIf="selectedImage">
-        <h4 class="modal-title">Modal title</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ligula id libero posuere ullamcorper quis id lorem. Etiam non nunc nec erat accumsan fermentum id et lorem.</p>
+        <h4 class="modal-title">{{selectedImage.heading}}</h4>
+        <p>{{selectedImage.description}}</p>
         <p class="date-footnote">Опубликовано: {{selectedImage.date}}</p>
     </div>
 </ng-template>
