@@ -1,5 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* FONTS START */
 $Raleway: 'Raleway';
 /* Regular */
 @font-face {
@@ -29,6 +28,7 @@ $Raleway: 'Raleway';
   font-weight: 900;
   src: local('Raleway Black'), local('Raleway-Black'), url(./assets/fonts/Raleway-Black.ttf) format('ttf');
 }
+/* FONTS END */
 
 .custom-bg {
   background-color: #2C3840;
@@ -55,6 +55,7 @@ input, button {
   border-radius: 0!important;
 }
 
+/* HEADER START */
 header.masthead {
   margin-bottom: 50px;
   position: relative;
@@ -99,7 +100,17 @@ header.masthead {
     font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif;
   }
 }
+@media only screen and (min-width: 768px) {
+  header.masthead .page-heading h1 {
+    font-size: 50px;
+  }
+  header.masthead .site-heading h1 {
+    font-size: 70px;
+  }
+}
+/* HEADER END */
 
+/* MODAL START */
 .modal-backdrop {
   opacity: .8!important;
 }
@@ -113,17 +124,9 @@ header.masthead {
     border: none;
   }
 }
-
-@media only screen and (min-width: 768px) {
-  header.masthead .page-heading h1 {
-    font-size: 50px;
-  }
-  header.masthead .site-heading h1 {
-    font-size: 70px;
-  }
-}
 @media (min-width: 1200px) {
   .modal-dialog {
     max-width: 1300px;
   }
 }
+/* MODAL END */
