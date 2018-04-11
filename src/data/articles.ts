@@ -5,7 +5,8 @@ export class Articles {
     data: string;
 
 }
-
+/*
 export const ARTICLES: Articles[] = [
     { name: '', description: '', tags: '', data: '10.04.2018' }
 ];
+*/
