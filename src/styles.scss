@@ -67,14 +67,14 @@ header.masthead {
     background-color: #212529;
     opacity: .6;
   }
-  .page-heading, header.masthead .site-heading {
+  .page-heading, .site-heading {
     text-align: center;
   }
   .site-heading {
     padding: 200px 0;
     color: #fff;
   }
-  .page-heading, header.masthead .post-heading {
+  .page-heading, .post-heading {
     padding: 100px 0;
     color: #fff;
   }
@@ -86,7 +86,7 @@ header.masthead {
     font-size: 50px;
     margin-top: 0;
   }
-  .page-heading .subheading, header.masthead .site-heading .subheading {
+  .page-heading .subheading, .site-heading .subheading {
     font-size: 20px;
     font-weight: 300;
     line-height: 1.1;
