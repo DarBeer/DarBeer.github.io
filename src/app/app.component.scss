@@ -1,60 +1,69 @@
+$blue: #2980b9;
 @media (min-width: 992px) {
   .navbar {
     padding: 1rem;
     .nav-link:hover {
-      color: rgba(255, 255, 255, 0.5);
+      color: #fff;
     }
   }
   .navbar-nav {
     text-align: center;
     text-transform: uppercase;
     font-weight: 500;
+    letter-spacing: 1px;
     * {
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
+      -webkit-transition: all 0.35s ease;
+      transition: all 0.35s ease;
     }
     li {
       display: inline-block;
       list-style: outside none none;
-      margin: 0 0.5em;
+      margin: 0.5em;
       padding: 0;
     }
     a {
-      padding: 0.5em 0;
+      padding: 0.5em 0.8em;
       color: rgba(255, 255, 255, 0.5);
       position: relative;
-      letter-spacing: 1px;
       text-decoration: none;
     }
     a:before, a:after {
+      height: 14px;
+      width: 14px;
       position: absolute;
+      content: '';
       -webkit-transition: all 0.35s ease;
       transition: all 0.35s ease;
+      opacity: 0;
     }
     a:before {
-      bottom: 0;
-      display: block;
-      height: 3px;
-      width: 0;
-      content: "";
-      background-color: #2980b9;
+      right: 0;
+      top: 0;
+      border-right: 3px solid $blue;
+      border-top: 3px solid $blue;
+      -webkit-transform: translate(-100%, 50%);
+      transform: translate(-100%, 50%);
     }
     a:after {
       left: 0;
-      top: 0;
-      padding: 0.5em 0;
-      position: absolute;
-      content: attr(data-hover);
+      bottom: 0;
+      border-left: 3px solid $blue;
+      border-bottom: 3px solid $blue;
+      -webkit-transform: translate(100%, -50%);
+      transform: translate(100%, -50%);
+    }
+    a:hover, .active a {
       color: #ffffff;
-      white-space: nowrap;
-      max-width: 0;
-      overflow: hidden;
     }
-    a:hover:before, .active a:before {
+    a:hover:before,
+    .active a:before,
+    a:hover:after,
+    .active a:after {
+      -webkit-transform: translate(0%, 0%);
+      transform: translate(0%, 0%);
       opacity: 1;
-      width: 100%;
-    }
-    a:hover:after, .active a:after {
-      max-width: 100%;
     }
   }
 }
