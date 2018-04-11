@@ -23,7 +23,7 @@
     "@angular/router": "^5.2.0",
     "@ng-bootstrap/ng-bootstrap": "^1.1.1",
     "core-js": "^2.4.1",
-    "mongodb": "^3.0.5",
+    "mongodb": "^3.0.6",
     "mongoose": "^5.0.13",
     "mysql": "^2.15.0",
     "ng-bootstrap": "^1.6.3",

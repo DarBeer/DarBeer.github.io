@@ -45,7 +45,8 @@
 <ng-template #content let-c="close" let-d="dismiss" >
     <div class="modal-wrapper">
         <div class="modal-body" *ngIf="selectedVideo" >
-            <iframe width="560" height="349" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+            <!--<iframe width="560" height="349" frameborder="0" allowfullscreen src="{{selectedVideo.urlVideo}}"></iframe>-->
+            <video width=100% height="500" controls="controls" src="{{selectedVideo.urlVideo}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>            </video>
         </div>
         <div class="modal-sidebar">
             <div class="modal-header">
