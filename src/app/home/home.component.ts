@@ -12,9 +12,9 @@ export class HomeComponent implements OnInit {
     heading = 'Виртуальный Музей';
     subheading = 'Учреждения образования средней школы №2 г. Бобруйска';
 
-    //dataService = DataService;
 
     constructor() {
+
     }
 
     ngOnInit() {
