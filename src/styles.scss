@@ -31,7 +31,14 @@ $Raleway: 'Raleway';
 /* FONTS END */
 
 .custom-bg {
-  background-color: #2C3840;
+  //background-color: #2C3840;
+  //background: #4b6cb7;
+  //background: -webkit-linear-gradient(to right, #182848, #4b6cb7);
+  //background: linear-gradient(to right, #182848, #4b6cb7);
+
+  background: #141E30;
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);
+  background: linear-gradient(to right, #243B55, #141E30);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,7 +76,7 @@ header.masthead {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #212529;
+    background-color: #182848; /* #212529; */
     opacity: .6;
   }
   .page-heading, .site-heading {

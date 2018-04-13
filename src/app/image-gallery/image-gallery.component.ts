@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Image, IMAGES } from '../../data/images';
-import { NgbModal, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-image-gallery',
@@ -17,15 +17,14 @@ export class ImageGalleryComponent implements OnInit {
     selectedImage: Image;
 
 
-    constructor(private modalService: NgbModal, config: NgbCarouselConfig) {
-        config.interval = 0;
+    constructor(private modalService: NgbModal) {
+    }
+
+    ngOnInit() {
     }
 
     openImage(content) {
         this.modalService.open(content, { centered: true, size: 'lg' });
-    }
-
-    ngOnInit() {
     }
 
     onSelect(image: Image): void {

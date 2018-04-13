@@ -16,3 +16,7 @@
 <p>
   articles works!
 </p>
+
+<ul *ngFor="let image of images" >
+    <li>{{image.id}}, {{image.date}} <a routerLink="/articles/{{image.id}}" (click)="getNews(image)">read more</a></li>
+</ul>

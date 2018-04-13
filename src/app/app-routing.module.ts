@@ -5,6 +5,7 @@ import { ArticlesComponent} from "./articles/articles.component";
 import { HistoryComponent} from "./history/history.component";
 import { ImageGalleryComponent} from "./image-gallery/image-gallery.component";
 import { VideoGalleryComponent} from "./video-gallery/video-gallery.component";
+import { PageComponent } from './articles/page/page.component';
 
 const routes: Routes = [
     {
@@ -14,6 +15,10 @@ const routes: Routes = [
     {
         path: 'articles',
         component: ArticlesComponent
+    },
+    {
+        path: 'articles/:id',
+        component: PageComponent
     },
     {
         path: 'history',
