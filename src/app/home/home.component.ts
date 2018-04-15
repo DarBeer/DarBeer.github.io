@@ -12,13 +12,14 @@ export class HomeComponent implements OnInit {
     heading = 'Виртуальный Музей';
     subheading = 'Учреждения образования средней школы №2 г. Бобруйска';
 
+    lastData = [];
 
-    constructor() {
-
+    constructor(/*private _data: DataService*/) {
+        //console.log(this.lastData);
     }
 
     ngOnInit() {
-
+        //this.lastData = [this._data.getData()];
     }
 
 }
