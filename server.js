@@ -2,9 +2,9 @@ const express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    index = require('./routes/index'),
+    //index = require('./routes/index'),
     images = require('./routes/images'),
-    port = process.env.PORT || 80,
+    port = process.env.PORT || 3000,
     app = express();
 
 // MongoDB
@@ -20,15 +20,15 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname, 'src')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Routes
-app.use('/', index);
-app.use('/image-gallery', images);
+//app.use('/', index);
+app.use('/images', images);
 
 // Listen to port
 app.listen(port, function(){
