@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // Routes
 app.use('/', index);
-app.use('/images', images);
+app.use('/image-gallery', images);
 
 // Listen to port
 app.listen(port, function(){

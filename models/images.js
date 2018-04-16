@@ -6,7 +6,7 @@ const Image = new ImageSchema({
     heading: String,
     description: String,
     urlImage: String,
-    price: {
+    date: {
         type: Date, default: Date.now
     }
 },{
