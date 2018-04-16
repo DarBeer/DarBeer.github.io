@@ -1,91 +1,36 @@
-/**
- * Module dependencies.
- */
+const express = require('express'),
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    mongoose = require('mongoose'),
+    index = require('./routes/index'),
+    images = require('./routes/images'),
+    port = process.env.PORT || 80,
+    app = express();
 
-const app = require('./app');
-const debug = require('debug')('diplom:server');
-const http = require('http');
+// MongoDB
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://admin:31047766@ds123029.mlab.com:23029/diplom').then(
+    () => {console.log('Database is connected') },
+    err => { console.log('Can not connect to the database'+ err)}
+);
 
-/**
- * Get port from environment and store in Express.
- */
+// View Engine
+app.set('views', path.join(__dirname, 'dist'));
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 
-const port = normalizePort(process.env.PORT || '80');
-app.set('port', port);
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'src')));
 
-/**
- * Create HTTP server.
- */
+// Body Parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
-const server = http.createServer(app);
+// Routes
+app.use('/', index);
+app.use('/images', images);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port, function(){
-    console.log('Server started on port '+port);
+// Listen to port
+app.listen(port, function(){
+    console.log('Listening on port ' + port);
 });
-server.on('error', onError);
-server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-
-function normalizePort(val) {
-    const port = parseInt(val, 10);
-
-    if (isNaN(port)) {
-        // named pipe
-        return val;
-    }
-
-    if (port >= 0) {
-        // port number
-        return port;
-    }
-
-    return false;
-}
-
-/**
- * Event listener for HTTP server "error" event.
- */
-
-function onError(error) {
-    if (error.syscall !== 'listen') {
-        throw error;
-    }
-
-    const bind = typeof port === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port;
-
-    // handle specific listen errors with friendly messages
-    switch (error.code) {
-        case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
-            process.exit(1);
-            break;
-        case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
-            process.exit(1);
-            break;
-        default:
-            throw error;
-    }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-    const addr = server.address();
-    const bind = typeof addr === 'string'
-        ? 'pipe ' + addr
-        : 'port ' + addr.port;
-    debug('Listening on ' + bind);
-}
