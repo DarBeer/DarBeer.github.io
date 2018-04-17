@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
+import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
-import { IMAGES } from '../data/images';
-import { VIDEO } from '../data/videos';
 
 @Injectable()
 export class DataService {
 
+    constructor(private http: HttpClient ) { }
 
-    //last_image = IMAGES[IMAGES.length - 1];
-    //last_video = VIDEO[VIDEO.length - 1];
-    //lastData = [this.last_image.urlImage, this.last_video.urlImage];
-
-    images = IMAGES;
-    videos = VIDEO;
-
-    constructor() {
-
+    // GET images
+    getImages(url: string): Observable<any> {
+        //const url = 'http://localhost:3000/data/images';
+        return this.http.get(url);
     }
-/*
-    getData() {
-        return this.images[IMAGES.length - 1];
-    }
-*/
+
+    // ADD image
+
+    // DELETE image
+
 }

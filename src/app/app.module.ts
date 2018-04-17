@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -11,6 +13,7 @@ import { HistoryComponent } from './history/history.component';
 import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
 import { PageComponent } from './articles/page/page.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -21,11 +24,14 @@ import { PageComponent } from './articles/page/page.component';
         HistoryComponent,
         ImageGalleryComponent,
         VideoGalleryComponent,
-        PageComponent
+        PageComponent,
+        AdminComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
         NgbModule.forRoot()
   ],
     providers: [NgbCarouselConfig],

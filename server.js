@@ -1,6 +1,7 @@
 const express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
+    cors = require('cors'),
     mongoose = require('mongoose'),
     //index = require('./routes/index'),
     images = require('./routes/images'),
@@ -26,9 +27,12 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+// CORS
+app.use(cors());
+
 // Routes
 //app.use('/', index);
-app.use('/images', images);
+app.use('/data', images);
 
 // Listen to port
 app.listen(port, function(){

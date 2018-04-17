@@ -6,6 +6,7 @@ import { HistoryComponent} from "./history/history.component";
 import { ImageGalleryComponent} from "./image-gallery/image-gallery.component";
 import { VideoGalleryComponent} from "./video-gallery/video-gallery.component";
 import { PageComponent } from './articles/page/page.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
     {
@@ -31,6 +32,10 @@ const routes: Routes = [
     {
         path: 'video-gallery',
         component: VideoGalleryComponent
+    },
+    {
+        path: 'admin',
+        component: AdminComponent
     }
 ];
 
