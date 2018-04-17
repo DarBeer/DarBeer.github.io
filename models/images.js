@@ -6,9 +6,9 @@ const Image = new ImageSchema({
     heading: String,
     description: String,
     urlImage: String,
-    date: {
+    date: String/*{
         type: Date, default: Date.now
-    }
+    }*/
 },{
     collection: 'images'
 });
