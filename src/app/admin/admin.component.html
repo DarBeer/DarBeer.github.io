@@ -18,3 +18,37 @@
         </tbody>
     </table>
 </div>
+<div class="container">
+    <form [formGroup]="imageForm" novalidate>
+        <div class="form-group col-md-4">
+            <label>Image heading</label>
+            <input type="text" class="form-control" formControlName="heading" #heading />
+            <div *ngIf="imageForm.controls['heading'].invalid && (imageForm.controls['heading'].dirty || imageForm.controls['heading'].touched)" class="alert alert-danger">
+                <div *ngIf="imageForm.controls['heading'].errors.required">
+                    Heading is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Image description</label>
+            <input type="text" class="form-control" formControlName="description" #description/>
+            <div *ngIf="imageForm.controls['description'].invalid && (imageForm.controls['description'].dirty || imageForm.controls['description'].touched)" class="alert alert-danger">
+                <div *ngIf="imageForm.controls['description'].errors.required">
+                    Description is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Image url</label>
+            <input type="text" class="form-control" formControlName="urlImage" #urlImage/>
+            <div *ngIf="imageForm.controls['urlImage'].invalid && (imageForm.controls['urlImage'].dirty || imageForm.controls['urlImage'].touched)" class="alert alert-danger">
+                <div *ngIf="imageForm.controls['urlImage'].errors.required">
+                    Description is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <button (click)="addImage(heading.value, description.value, urlImage.value)" [disabled]="imageForm.pristine || imageForm.invalid" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+</div>

@@ -14,6 +14,7 @@ import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
 import { PageComponent } from './articles/page/page.component';
 import { AdminComponent } from './admin/admin.component';
+import {DataService} from "./data.service";
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { AdminComponent } from './admin/admin.component';
         ReactiveFormsModule,
         NgbModule.forRoot()
   ],
-    providers: [NgbCarouselConfig],
+    providers: [NgbCarouselConfig, DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
