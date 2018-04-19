@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
 
     imageForm: FormGroup;
     images: any;
+    imageName: string;
 
     constructor(private http: HttpClient, private service: DataService, private form: FormBuilder) {
         this.createForm();
@@ -30,10 +31,13 @@ export class AdminComponent implements OnInit {
         this.service.addImage(heading, description, urlImage);
     }
 
+    onSelectedFile(event){
+        this.imageName = event.target.files[0].name;
+    }
+
     ngOnInit() {
         this.getImages();
     }
-
 
     getImages() {
         this.service.getImages().subscribe(res => {

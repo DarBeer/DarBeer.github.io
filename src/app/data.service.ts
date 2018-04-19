@@ -19,12 +19,12 @@ export class DataService {
     }
 
     // ADD image
-    addImage(heading, description, urlImage) {
+    addImage(heading, description, imageName) {
         const uri = 'http://localhost:3000/data/image';
         const obj = {
             heading: heading,
             description: description,
-            urlImage: urlImage,
+            urlImage: '../../assets/img/' + imageName,
             date: Date.now()
         };
         this.http
