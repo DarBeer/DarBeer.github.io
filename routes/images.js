@@ -13,11 +13,13 @@ imageRoutes.get('/images', function(req, res, next) {
 // ADD image
 imageRoutes.post('/image', function (req, res, next) {
     const newImage = new Image(req.body);
+    const uploadImage = req.files.uploadImage;
     newImage.save((err, image) => {
         if (err)
         {
             res.json({msg: 'Failed to add image to gallery'});
         } else {
+            uploadImage.mv('/src/assets/img/');
             res.json({msg: 'Image added to gallery'});
         }}
     )

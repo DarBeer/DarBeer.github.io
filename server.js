@@ -4,6 +4,7 @@ const express = require('express'),
     cors = require('cors'),
     mongoose = require('mongoose'),
     //index = require('./routes/index'),
+    fileUpload = require('express-fileupload'),
     images = require('./routes/images'),
     port = process.env.PORT || 3000,
     app = express();
@@ -29,6 +30,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // CORS
 app.use(cors());
+
+// File Uploader
+app.use(fileUpload());
 
 // Routes
 //app.use('/', index);
