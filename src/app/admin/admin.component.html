@@ -9,7 +9,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let image of images">
+            <tr *ngFor="let image of images | paginate: { itemsPerPage: 10, currentPage: p }">
                 <td>{{ image.heading }}</td>
                 <td>{{ image.description }}</td>
                 <td>{{ image.urlImage }}</td>
@@ -17,6 +17,7 @@
             </tr>
         </tbody>
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 <div class="container">
     <form [formGroup]="imageForm" novalidate>
@@ -48,7 +49,7 @@
             </div>
         </div>
         <div class="form-group col-md-12">
-            <button (click)="addImage(heading.value, description.value, this.imageName)" [disabled]="imageForm.pristine || imageForm.invalid" class="btn btn-primary">Add</button>
+            <button type="submit" (click)="addImage(heading.value, description.value)" [disabled]="imageForm.pristine || imageForm.invalid" class="btn btn-primary">Add</button>
         </div>
     </form>
 </div>

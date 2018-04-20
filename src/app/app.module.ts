@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,7 +15,7 @@ import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
 import { PageComponent } from './articles/page/page.component';
 import { AdminComponent } from './admin/admin.component';
-import {DataService} from "./data.service";
+import { DataService } from "./data.service";
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {DataService} from "./data.service";
         AppRoutingModule,
         HttpClientModule,
         ReactiveFormsModule,
+        NgxPaginationModule,
         NgbModule.forRoot()
   ],
     providers: [NgbCarouselConfig, DataService],
