@@ -13,8 +13,7 @@ export class AdminComponent implements OnInit {
 
     imageForm: FormGroup;
     images: any;
-    imageName: string;
-    imageFile = null;
+    imageFile: File = null;
 
     constructor(private http: HttpClient, private service: DataService, private form: FormBuilder) {
         this.createForm();
@@ -39,16 +38,14 @@ export class AdminComponent implements OnInit {
     }
 
     onSelectedFile(event){
-        this.imageName = event.target.files[0].name;
-        this.imageFile = event.target.files[0];
-        console.log(this.imageFile)
+        this.imageFile = <File>event.target.files[0];
     }
 
-    addImage(heading, description, imageName, uploadData) {
-        uploadData = new FormData();
-        uploadData.append('galleryImage', this.imageFile);
-        this.service.addImage(heading, description, imageName, uploadData);
-        console.log(this.imageFile)
+    addImage(heading, description, imageName, uploadImage) {
+        uploadImage = new FormData();
+        uploadImage.append('galleryImage', this.imageFile, this.imageFile.name);
+        imageName = this.imageFile.name;
+        this.service.addImage(heading, description, imageName, uploadImage);
     }
 
 }

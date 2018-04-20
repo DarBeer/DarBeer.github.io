@@ -13,25 +13,30 @@ export class DataService {
     }
 
     // GET images
-    getImages(): Observable<any> {
+    getImages() {
         const uri = 'http://localhost:3000/data/images';
         return this.http.get(uri);
     }
 
     // ADD image
-    addImage(heading, description, imageName, uploadData) {
-        const uri = 'http://localhost:3000/data/image';
+    addImage(heading, description, imageName, uploadImage) {
+        const uri_data = 'http://localhost:3000/data/image';
+        const uri_img = 'http://localhost:3000/data/upload';
         const obj = {
             heading: heading,
             description: description,
             urlImage: '../../assets/img/' + imageName,
-            imageFile: uploadData,
             date: Date.now()
         };
+        //console.log(obj);
         this.http
-            .post(uri, obj)
+            .post(uri_img, uploadImage)
             .subscribe(res =>
-                console.log('Done'))
+                console.log(res));
+        this.http
+            .post(uri_data, obj)
+            .subscribe(res =>
+                console.log(res))
     }
 
     // DELETE image

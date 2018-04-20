@@ -22,6 +22,7 @@ app.engine('html', require('ejs').renderFile);
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 // Body Parser
 app.use(bodyParser.json());
@@ -29,9 +30,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // CORS
 app.use(cors());
-
-// File Uploader
-//app.use(multer({dest: '/src/assets/img/'}));
 
 // Routes
 //app.use('/', index);
