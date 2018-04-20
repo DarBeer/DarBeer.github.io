@@ -24,7 +24,9 @@ imageRoutes.post('/image', upload.single('galleryImage'), function (req, res, ne
         }}
     );
     if (!req.file) {
-
+        res.json({msg: 'Failed'});
+    } else {
+        res.json({msg: 'Success'});
     }
     console.log(req.body);
     console.log(req.file);
