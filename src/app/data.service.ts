@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataService {
 
-    constructor(private http: HttpClient ) {
+    constructor(private http: HttpClient) {
 
     }
 
@@ -19,18 +19,19 @@ export class DataService {
     }
 
     // ADD image
-    addImage(heading, description, imageName) {
+    addImage(heading, description, imageName, uploadData) {
         const uri = 'http://localhost:3000/data/image';
         const obj = {
             heading: heading,
             description: description,
             urlImage: '../../assets/img/' + imageName,
+            imageFile: uploadData,
             date: Date.now()
         };
         this.http
             .post(uri, obj)
             .subscribe(res =>
-                console.log('Done'));
+                console.log('Done'))
     }
 
     // DELETE image

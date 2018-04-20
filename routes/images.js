@@ -1,6 +1,8 @@
 const express = require('express');
 const imageRoutes = express.Router();
 const Image = require('../models/images');
+const multer  = require('multer');
+const upload = multer({dest: './src/assets/img/'});
 
 // GET images
 imageRoutes.get('/images', function(req, res, next) {
@@ -11,18 +13,21 @@ imageRoutes.get('/images', function(req, res, next) {
 });
 
 // ADD image
-imageRoutes.post('/image', function (req, res, next) {
+imageRoutes.post('/image', upload.single('galleryImage'), function (req, res, next) {
     const newImage = new Image(req.body);
-    const uploadImage = req.files.uploadImage;
     newImage.save((err, image) => {
         if (err)
         {
-            res.json({msg: 'Failed to add image to gallery'});
+            res.json({msg: 'Failed to add image data to gallery'});
         } else {
-            uploadImage.mv('/src/assets/img/');
-            res.json({msg: 'Image added to gallery'});
+            res.json({msg: 'Image data added to gallery'});
         }}
-    )
+    );
+    if (!req.file) {
+
+    }
+    console.log(req.body);
+    console.log(req.file);
 });
 
 // DELETE image

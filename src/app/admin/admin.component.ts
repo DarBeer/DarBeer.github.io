@@ -14,35 +14,41 @@ export class AdminComponent implements OnInit {
     imageForm: FormGroup;
     images: any;
     imageName: string;
+    imageFile = null;
 
     constructor(private http: HttpClient, private service: DataService, private form: FormBuilder) {
         this.createForm();
-    }
-
-    createForm() {
-        this.imageForm = this.form.group({
-            heading: ['', Validators.required ],
-            description: ['', Validators.required ],
-            urlImage: ['', Validators.required ]
-        });
-    }
-
-    addImage(heading, description, urlImage) {
-        this.service.addImage(heading, description, urlImage);
-    }
-
-    onSelectedFile(event){
-        this.imageName = event.target.files[0].name;
     }
 
     ngOnInit() {
         this.getImages();
     }
 
+    createForm() {
+        this.imageForm = this.form.group({
+            heading: ['', Validators.required ],
+            description: ['', Validators.required ],
+            urlImage: ['', Validators ]
+        });
+    }
+
     getImages() {
         this.service.getImages().subscribe(res => {
             this.images = res;
-    });
+        });
+    }
+
+    onSelectedFile(event){
+        this.imageName = event.target.files[0].name;
+        this.imageFile = event.target.files[0];
+        console.log(this.imageFile)
+    }
+
+    addImage(heading, description, imageName, uploadData) {
+        uploadData = new FormData();
+        uploadData.append('galleryImage', this.imageFile);
+        this.service.addImage(heading, description, imageName, uploadData);
+        console.log(this.imageFile)
     }
 
 }
