@@ -3,41 +3,33 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app.routing';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ArticlesComponent } from './articles/articles.component';
-import { HistoryComponent } from './history/history.component';
-import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
-import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
-import { PageComponent } from './articles/page/page.component';
-import { AdminComponent } from './admin/admin.component';
-import { DataService } from "./data.service";
+import { DataService } from "./shared/services/data.service";
+import { DashboardModule } from "./dashboard/dashboard.module";
+import { WebModule } from "./web/web.module";
+import { LoginModule } from "./login/login.module";
 
 
 @NgModule({
     declarations: [
-        AppComponent,
-        HomeComponent,
-        ArticlesComponent,
-        HistoryComponent,
-        ImageGalleryComponent,
-        VideoGalleryComponent,
-        PageComponent,
-        AdminComponent
-  ],
+        AppComponent
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        DashboardModule,
+        WebModule,
+        LoginModule,
         HttpClientModule,
         ReactiveFormsModule,
         NgxPaginationModule,
         NgbModule.forRoot()
-  ],
-    providers: [NgbCarouselConfig, DataService],
+    ],
+    providers: [DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

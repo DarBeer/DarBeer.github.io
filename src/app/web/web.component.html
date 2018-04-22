@@ -1,0 +1,38 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-bg">
+  <div class="container">
+    <a class="navbar-brand" routerLink="admin">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+          <a class="nav-link" routerLink=""  >{{home}}</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/history" >{{history}}</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/articles">{{articles}}</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/image-gallery">{{image_gallery}}</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/video-gallery">{{video_gallery}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="wrapper">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="py-5 custom-bg">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright © Diploma Project 2018</p>
+  </div>
+</footer>

@@ -30,6 +30,75 @@ $Raleway: 'Raleway';
 }
 /* FONTS END */
 
+/* LOADER START */
+#loading {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sk-cube-grid {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+}
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #333;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  } 35% {
+      -webkit-transform: scale3D(0, 0, 1);
+      transform: scale3D(0, 0, 1);
+    }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  } 35% {
+      -webkit-transform: scale3D(0, 0, 1);
+      transform: scale3D(0, 0, 1);
+    }
+}
+/* LOADER END */
+
 .custom-bg {
   //background-color: #2C3840;
   //background: #4b6cb7;
@@ -39,6 +108,10 @@ $Raleway: 'Raleway';
   background: #141E30;
   background: -webkit-linear-gradient(to right, #243B55, #141E30);
   background: linear-gradient(to right, #243B55, #141E30);
+}
+
+.wrapper {
+  min-height: calc(100vh - 78px - 120px);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -104,7 +177,7 @@ header.masthead {
     line-height: 1.1;
     display: block;
     margin: 10px 0 0;
-    font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-family: $Raleway,'Helvetica Neue',Helvetica,Arial,sans-serif;
   }
 }
 @media only screen and (min-width: 768px) {
