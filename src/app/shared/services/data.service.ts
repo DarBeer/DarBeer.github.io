@@ -59,16 +59,14 @@ export class DataService {
         };
         this.http
             .post(uri_img, img)
-            .map(res => {
-                return res;
-            });
+            .subscribe(res =>
+                console.log(res));
         return this.http
             .post<Image>(uri, obj,{headers:headers})
             .map(res => {
                 return res;
             });
     }
-
 
     // EDIT image
 

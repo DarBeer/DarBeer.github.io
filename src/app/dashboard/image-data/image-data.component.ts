@@ -89,8 +89,6 @@ export class ImageDataComponent implements OnInit, AfterViewInit {
             );
     }
 
-
-
     // DELETE image
     /*
     delImage(id:any) {
