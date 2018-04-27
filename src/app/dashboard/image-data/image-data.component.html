@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let image of images | orderBy:'image.date':true | paginate: { itemsPerPage: 5, currentPage: p }">
+            <tr *ngFor="let image of images | orderBy:'date':true | paginate: { itemsPerPage: 5, currentPage: p }">
                 <td>{{ image.heading }}</td>
                 <td>{{ image.description }}</td>
                 <td>../../assets/img/{{ image.urlImage }}</td>
