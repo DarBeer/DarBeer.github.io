@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from "../../shared/services/data.service";
 import { FormGroup,  FormBuilder,  Validators } from "@angular/forms";
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
@@ -23,7 +22,7 @@ export class ImageDataComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
-    constructor(private http: HttpClient, private service: DataService, private form: FormBuilder) {
+    constructor(private service: DataService, private form: FormBuilder) {
         this.createForm();
     }
 
