@@ -5,6 +5,7 @@ const express = require('express'),
     mongoose = require('mongoose'),
     //index = require('./routes/index'),
     images = require('./routes/images'),
+    articles = require('./routes/articles'),
     port = process.env.PORT || 3000,
     app = express();
 
@@ -34,6 +35,7 @@ app.use(cors());
 // Routes
 //app.use('/', index);
 app.use('/data/images', images);
+app.use('/data/articles', articles);
 
 // Listen to port
 app.listen(port, function(){

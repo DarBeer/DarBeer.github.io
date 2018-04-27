@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
-const ImageSchema = mongoose.Schema;
+const ArticleSchema = mongoose.Schema;
 
 // Define collection and schema for Items
-const Image = new ImageSchema({
+const Article = new ArticleSchema({
     heading: String,
     description: String,
     urlImage: String,
+    text: String,
     date: String
 },{
-    collection: 'images'
+    collection: 'articles'
 });
 
-module.exports = mongoose.model('Image', Image);
+module.exports = mongoose.model('Article', Article);

@@ -2,7 +2,6 @@ const express = require('express');
 const imageRoutes = express.Router();
 const Image = require('../models/images');
 const multer  = require('multer');
-//const upload = multer({dest: './src/assets/img/'});
 
 // GET images
 imageRoutes.route('/').get(function(req, res, next) {
@@ -28,7 +27,7 @@ imageRoutes.route('/add').post((req, res) => {
 // UPLOAD image
 const storage = multer.diskStorage({ // Multer settings
     destination: function (req, file, cb) { // folder for image
-        cb(null, './src/assets/img/');
+        cb(null, './src/assets/img/gallery/');
     },
     filename: function (req, file, cb) { // save original name of image
         cb(null, file.originalname);
