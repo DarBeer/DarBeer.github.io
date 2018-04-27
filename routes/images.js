@@ -5,7 +5,7 @@ const multer  = require('multer');
 //const upload = multer({dest: './src/assets/img/'});
 
 // GET images
-imageRoutes.get('/images', function(req, res, next) {
+imageRoutes.route('/').get(function(req, res, next) {
     Image.find(function (err, images) {
         if (err) return next(err);
         res.json(images);
@@ -13,11 +13,10 @@ imageRoutes.get('/images', function(req, res, next) {
 });
 
 // ADD image data
-imageRoutes.post('/image', function (req, res, next) {
+imageRoutes.route('/add').post((req, res) => {
     const newImage = new Image(req.body);
     newImage.save((err, image) => {
-        if (err)
-        {
+        if (err) {
             res.json({msg: 'Failed to add image data to gallery'});
         } else {
             res.json({msg: 'Image data added to gallery'});
@@ -40,8 +39,8 @@ const upload = multer({
     storage: storage
     }).single('galleryImage'); // input name attr
 
-imageRoutes.post('/upload', function(req, res) {
-    upload(req,res,function(err){
+imageRoutes.route('/upload').post((req, res) => {
+    upload(req,res,(err) => {
         console.log(req.file);
         if(err){
             res.json({msg: 'Failed to add image file to gallery'});
@@ -51,14 +50,42 @@ imageRoutes.post('/upload', function(req, res) {
     });
 });
 
+// EDIT image
+imageRoutes.route('/edit/:id').get((req, res) => {
+    let id = req.params.id;
+    Image.findById(id, (err, image) => {
+        res.json(image)
+    })
+});
+
+// UPDATE image
+imageRoutes.route('/update/:id').post((req, res) => {
+   Image.findById(req.params.id, (err, image) => {
+       if (!image)
+           return next(new Error(err));
+       else {
+           image.heading = req.body.heading;
+           image.description = req.body.description;
+           image.imageUrl = req.body.imageUrl;
+
+           image.save()
+               .then(
+                   image => res.json(image)
+               )
+               .catch(
+                   err => res.status(400).send(err)
+               )
+       }
+   })
+});
+
 // DELETE image
-imageRoutes.post('/image/:id', function (req, res, next) {
-    Image.remove({_id: req.params.id}, function (err, result){
-        if (err)
-        {
+imageRoutes.route('/delete/:id').get((req, res) => {
+    Image.findByIdAndRemove({_id: req.params.id}, (err, image) => {
+        if (err) {
             res.json(err);
         } else {
-            res.json(result);
+            res.json(image);
         }}
     );
 });
