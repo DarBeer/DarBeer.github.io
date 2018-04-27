@@ -33,7 +33,7 @@ app.use(cors());
 
 // Routes
 //app.use('/', index);
-app.use('/data', images);
+app.use('/data/images', images);
 
 // Listen to port
 app.listen(port, function(){
