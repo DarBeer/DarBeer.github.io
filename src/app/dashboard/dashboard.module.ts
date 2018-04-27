@@ -5,12 +5,29 @@ import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from "@angular/common/http";
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CdkTableModule } from '@angular/cdk/table';
+import {
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatInputModule
+} from '@angular/material';
 import { DashboardComponent } from './dashboard.component';
 import { ImageDataComponent } from './image-data/image-data.component';
 import { VideoDataComponent } from './video-data/video-data.component';
 import { ArticleDataComponent } from './article-data/article-data.component';
 
+const Materials = [
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatInputModule
+];
 
 @NgModule({
     declarations: [
@@ -24,10 +41,14 @@ import { ArticleDataComponent } from './article-data/article-data.component';
         RouterModule,
         ReactiveFormsModule,
         NgxPaginationModule,
-        HttpClientModule
+        HttpClientModule,
+        BrowserAnimationsModule,
+        Materials
     ],
     exports: [
-        RouterModule
+        RouterModule,
+        CdkTableModule,
+        Materials
     ]
 })
 export class DashboardModule { }
