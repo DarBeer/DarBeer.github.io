@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
 
 import { IMAGES } from '../../../data/images';
 
@@ -15,7 +14,8 @@ export class ArticlesComponent implements OnInit {
 
     images = IMAGES;
 
-    constructor(private route: ActivatedRoute) {
+    constructor() {
+
     }
 
     ngOnInit() {
