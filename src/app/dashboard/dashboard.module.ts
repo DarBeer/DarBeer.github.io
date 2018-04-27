@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from "@angular/common/http";
+import { OrderModule } from 'ngx-order-pipe';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CdkTableModule } from '@angular/cdk/table';
 import {
@@ -43,6 +44,7 @@ const Materials = [
         NgxPaginationModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        OrderModule,
         Materials
     ],
     exports: [

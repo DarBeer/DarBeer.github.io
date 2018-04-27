@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { OrderModule } from 'ngx-order-pipe';
 
 import { AppComponent } from './app.component';
 import { DataService } from "./shared/services/data.service";
@@ -28,7 +27,6 @@ import { LoginModule } from "./login/login.module";
         HttpClientModule,
         ReactiveFormsModule,
         NgxPaginationModule,
-        OrderModule,
         NgbModule.forRoot()
     ],
     providers: [DataService],
