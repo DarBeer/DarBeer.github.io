@@ -36,7 +36,7 @@
 <div class="container-fluid p-0 image-gallery">
     <div class="row no-gutters popup-gallery" >
         <div class="col-lg-3 col-sm-4 col-6 img-hover" *ngFor="let image of images"  (click)="onSelect(image)" >
-            <img alt="" class="img-fluid" id="{{image.id}}" src="{{image.urlImage}}">
+            <img alt="" class="img-fluid" id="{{image._id}}" src="../../assets/img/gallery/{{image.urlImage}}">
             <div class="img-caption">
                 <h3>{{image.heading}}</h3>
             </div>
