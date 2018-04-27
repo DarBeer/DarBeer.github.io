@@ -4,3 +4,10 @@ td {
 img {
   width: 40%;
 }
+.del-btn {
+  cursor: pointer;
+}
+.del-btn:hover i {
+  transition: all 0.2s ease;
+  color: red;
+}

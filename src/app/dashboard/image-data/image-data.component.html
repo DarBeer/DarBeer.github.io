@@ -1,57 +1,94 @@
 <div class="container-fluid">
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <td>heading</td>
-      <td>description</td>
-      <td>urlImage</td>
-      <td>image</td>
-      <td>date</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let image of images | paginate: { itemsPerPage: 5, currentPage: p }">
-      <td>{{ image.heading }}</td>
-      <td>{{ image.description }}</td>
-      <td>../../assets/img/{{ image.urlImage }}</td>
-      <td><img src="../../assets/img/{{ image.urlImage }}"></td>
-      <td>{{ image.date | date:'dd MMM, yyyy HH:mm'  }}</td>
-    </tr>
-    </tbody>
-  </table>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>heading</td>
+                <td>description</td>
+                <td>urlImage</td>
+                <td>image</td>
+                <td>date</td>
+                <td>&nbsp;</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let image of images | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td>{{ image.heading }}</td>
+                <td>{{ image.description }}</td>
+                <td>../../assets/img/{{ image.urlImage }}</td>
+                <td><!--<img src="../../assets/img/{{ image.urlImage }}">-->image</td>
+                <td>{{ image.date | date:'dd MMM, yyyy HH:mm'  }}</td>
+                <td><a class="del-btn" (click)="delImage(image._id)" ><i class="fa fa-trash-alt"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
+<!--
 <div class="container-fluid">
-  <form [formGroup]="imageForm" novalidate>
-    <div class="form-group col-md-4">
-      <label>Image heading</label>
-      <input type="text" class="form-control" formControlName="heading" #heading />
-      <div *ngIf="imageForm.controls['heading'].invalid && (imageForm.controls['heading'].dirty || imageForm.controls['heading'].touched)" class="alert alert-danger">
-        <div *ngIf="imageForm.controls['heading'].errors.required">
-          Heading is required.
+    <mat-table #table [dataSource]="images" matSort>
+
+        <ng-container matColumnDef="heading">
+            <mat-header-cell *matHeaderCellDef> heading </mat-header-cell>
+            <mat-cell *matCellDef="let image"> {{image.heading}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef> description </mat-header-cell>
+            <mat-cell *matCellDef="let image"> {{image.description}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="image">
+            <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
+            <mat-cell *matCellDef="let image"> {{image.urlImage}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef> date </mat-header-cell>
+            <mat-cell *matCellDef="let image"> {{ image.date | date:'dd MMM, yyyy HH:mm' }} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let image; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   [showFirstLastButtons]="true">
+    </mat-paginator>
+</div>
+-->
+
+<div class="container-fluid">
+    <form class="row" [formGroup]="imageForm" novalidate>
+        <div class="form-group col-md-3">
+            <label>Image heading</label>
+            <input type="text" class="form-control" formControlName="heading" #heading />
+            <div *ngIf="imageForm.controls['heading'].invalid && (imageForm.controls['heading'].dirty || imageForm.controls['heading'].touched)" class="alert alert-danger">
+                <div *ngIf="imageForm.controls['heading'].errors.required">
+                  Heading is required.
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="form-group col-md-4">
-      <label>Image description</label>
-      <input type="text" class="form-control" formControlName="description" #description/>
-      <div *ngIf="imageForm.controls['description'].invalid && (imageForm.controls['description'].dirty || imageForm.controls['description'].touched)" class="alert alert-danger">
-        <div *ngIf="imageForm.controls['description'].errors.required">
-          Description is required.
+        <div class="form-group col-md-3">
+            <label>Image description</label>
+            <input type="text" class="form-control" formControlName="description" #description/>
+            <div *ngIf="imageForm.controls['description'].invalid && (imageForm.controls['description'].dirty || imageForm.controls['description'].touched)" class="alert alert-danger">
+                <div *ngIf="imageForm.controls['description'].errors.required">
+                  Description is required.
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="form-group col-md-4">
-      <label>Image url</label>
-      <input type="file" class="form-control" formControlName="urlImage" (change)="onSelectedFile($event)" name="galleryImage" #urlImage/>
-      <div *ngIf="imageForm.controls['urlImage'].invalid && (imageForm.controls['urlImage'].dirty || imageForm.controls['urlImage'].touched)" class="alert alert-danger">
-        <div *ngIf="imageForm.controls['urlImage'].errors">
-          Image is required.
+        <div class="form-group col-md-3">
+            <label>Image url</label>
+            <input type="file" class="form-control" formControlName="urlImage" (change)="onSelectedFile($event)" name="galleryImage" #urlImage/>
+            <div *ngIf="imageForm.controls['urlImage'].invalid && (imageForm.controls['urlImage'].dirty || imageForm.controls['urlImage'].touched)" class="alert alert-danger">
+                <div *ngIf="imageForm.controls['urlImage'].errors">
+                  Image is required.
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="form-group col-md-12">
-      <button type="submit" (click)="addImage(heading.value, description.value)" [disabled]="imageForm.pristine || imageForm.invalid" class="btn btn-primary">Add</button>
-    </div>
-  </form>
+          <div class="form-group col-md-3">
+              <label>Image preview</label>
+          </div>
+        <div class="form-group col-md-12">
+            <button type="submit" (click)="addImage(heading.value, description.value)" [disabled]="imageForm.pristine || imageForm.invalid" class="btn btn-primary">Add</button>
+        </div>
+    </form>
 </div>
