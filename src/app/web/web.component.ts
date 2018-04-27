@@ -9,10 +9,14 @@ export class WebComponent implements OnInit {
 
     title = 'Дипломный Проект';
     home = 'Главная';
-    history = 'История';
-    articles = 'Статьи';
-    image_gallery = 'Галерея';
-    video_gallery = 'Видео';
+    copyright = 'Copyright © Diploma Project 2018';
+
+    linkList  = [
+        { name: 'История', link: '/history'},
+        { name: 'Статьи', link: '/articles'},
+        { name: 'Галерея', link: '/image-gallery'},
+        { name: 'Видео', link: '/video-gallery'}
+    ];
 
     constructor() { }
 
