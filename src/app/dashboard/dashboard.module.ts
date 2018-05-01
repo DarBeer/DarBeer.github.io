@@ -7,6 +7,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from "@angular/common/http";
 import { OrderModule } from 'ngx-order-pipe';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from 'ngx-toastr';
 import { CdkTableModule } from '@angular/cdk/table';
 import {
     MatTableModule,
@@ -44,6 +45,9 @@ const Materials = [
         NgxPaginationModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        ToastrModule.forRoot({
+            positionClass: 'toast-bottom-right'
+        }),
         OrderModule,
         Materials
     ],
