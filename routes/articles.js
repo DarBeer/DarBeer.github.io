@@ -3,15 +3,29 @@ const articleRoutes = express.Router();
 const Article = require('../models/articles');
 const multer  = require('multer');
 
-// GET images
-articleRoutes.route('/').get(function(req, res, next) {
+// GET articles
+articleRoutes.route('/').get((req, res, next) => {
     Article.find(function (err, articles) {
-        if (err) return next(err);
+        if (err) {
+            res.json(err);
+        } else {
         res.json(articles);
-    });
+        }}
+    );
 });
 
-// ADD image data
+// GET article by id
+articleRoutes.route('/:id').get((req, res) => {
+    Article.findById({_id: req.params.id}, (err, article) => {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(article);
+        }}
+    );
+});
+
+// ADD article data
 articleRoutes.route('/add').post((req, res) => {
     const newArticle = new Article(req.body);
     newArticle.save((err, article) => {
@@ -49,7 +63,7 @@ articleRoutes.route('/upload').post((req, res) => {
     });
 });
 
-// EDIT image
+// EDIT article
 articleRoutes.route('/edit/:id').get((req, res) => {
     let id = req.params.id;
     Article.findById(id, (err, article) => {
@@ -57,7 +71,7 @@ articleRoutes.route('/edit/:id').get((req, res) => {
     })
 });
 
-// UPDATE image
+// UPDATE article
 articleRoutes.route('/update/:id').post((req, res) => {
     Article.findById(req.params.id, (err, article) => {
         if (!article)
@@ -66,7 +80,7 @@ articleRoutes.route('/update/:id').post((req, res) => {
             article.heading = req.body.heading;
             article.description = req.body.description;
             article.imageUrl = req.body.imageUrl;
-            article.text = req.body.text;
+            article.textAll = req.body.textAll;
 
             article.save()
                 .then(
@@ -79,7 +93,7 @@ articleRoutes.route('/update/:id').post((req, res) => {
     })
 });
 
-// DELETE image
+// DELETE article
 articleRoutes.route('/delete/:id').get((req, res) => {
     Article.findByIdAndRemove({_id: req.params.id}, (err, article) => {
         if (err) {
