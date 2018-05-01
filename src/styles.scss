@@ -1,4 +1,7 @@
+@import "~bootstrap/scss/bootstrap";
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~ngx-toastr/toastr.css";
+
 
 /* COLORS */
 $basic: #243B55;
@@ -115,6 +118,13 @@ $Raleway: 'Raleway';
   min-height: calc(100vh - 78px - 120px);
 }
 
+.divider {
+  height: 50px;
+}
+.divider-sm {
+  height: 15px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   font-family: $Raleway,'Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -208,6 +218,10 @@ header.masthead {
 @media (min-width: 1200px) {
   .modal-dialog {
     max-width: 1300px;
+    justify-content: center;
+    .modal-content {
+      width: inherit;
+    }
   }
 }
 /* MODAL END */
