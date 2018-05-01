@@ -5,15 +5,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
                 <a class="nav-link" routerLink="/admin">
                     <i class="fa fa-fw fa-tachometer-alt"></i>
                     <span class="nav-link-text">{{dashboard}}</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-wrench"></i>
+                    <i class="fa fa-fw fa-list"></i>
                     <span class="nav-link-text">{{pages}}</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">

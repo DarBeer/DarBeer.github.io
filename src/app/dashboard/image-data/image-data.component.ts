@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { DataService } from "../../shared/services/data.service";
 import { FormGroup,  FormBuilder,  Validators } from "@angular/forms";
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { ToastrService } from 'ngx-toastr';
 import { Image } from './image'
 
 @Component({
@@ -11,23 +12,25 @@ import { Image } from './image'
 })
 export class ImageDataComponent implements OnInit, AfterViewInit {
 
+    imageTitle = 'Добавить Фотографию';
+
     private errorMessage: string;
     images: Image[];
     image: Image;
-
     imageForm: FormGroup;
     imageFile: File = null;
+    imageDef: string ='../../assets/img/noimage.png';
     //displayedColumns = ['heading','description','image','date'];
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
-    constructor(private service: DataService, private form: FormBuilder) {
+    constructor(private service: DataService, private form: FormBuilder, private toastr: ToastrService) {
         this.createForm();
     }
 
     ngOnInit() {
-        //this.getImages();
+        // GET images
         this.service.getImages()
             .subscribe(
                 images => this.images = images,
@@ -39,87 +42,56 @@ export class ImageDataComponent implements OnInit, AfterViewInit {
         //this.images.paginator = this.paginator;
     }
 
-    // GET images
-    getImages() {
-        /*this.service.getImages()
-            .subscribe(
-                res => this.images = res,
-                error => this.errorMessage = error,
-        )*/
-    }
-
-
     //dataSource = new MatTableDataSource(this.images);
 
-    // ADD image
+    // Form validation
     createForm() {
         this.imageForm = this.form.group({
             heading: ['', Validators.required ],
             description: ['', Validators.required ],
-            urlImage: ['', Validators ]
+            urlImage: ['']
         });
     }
 
-    onSelectedFile(event){
+    // GET uploaded file info
+    onSelectedFile(event) {
         this.imageFile = <File>event.target.files[0];
-    }
-/*
-    addImage(heading, description, imageName, uploadImage) {
-        uploadImage = new FormData();
-        uploadImage.append('galleryImage', this.imageFile, this.imageFile.name);
-        imageName = this.imageFile.name;
-        this.service.addImage(heading, description, imageName, uploadImage);
 
-        this.service.getImages()
-            .subscribe(images => this.images = images)
+        // Image preview
+        const reader = new FileReader();
+        reader.onload = (event:any) => {
+            this.imageDef = event.target.result
+        };
+        reader.readAsDataURL(this.imageFile)
     }
-    */
 
+    // ADD image
     addImage(heading, description, imageName, img) {
         img = new FormData();
         img.append('galleryImage', this.imageFile, this.imageFile.name);
         imageName = this.imageFile.name;
         this.service.addImage(heading, description, imageName, img)
             .subscribe(
-                image => {this.images.push(image);
+                image => {
+                    this.images.push(image);
+                    this.toastr.success('Фотография добавлена в галерею');
+                    this.imageForm.reset();
                     this.service.getImages()
-                        .subscribe(images => this.images = images)},
+                        .subscribe(images => this.images = images)
+                },
                 error => this.errorMessage = error
             );
     }
 
     // DELETE image
-    /*
     delImage(id:any) {
         this.service.delImage(id)
             .subscribe(
-                res => console.log(res),
-                error => this.errorMessage = error,
-            )
-    }
-    */
-    /*
-    delImage(id:any) {
-        const images = this.images;
-        this.service.delImage(id)
-            .subscribe(
-                data => {
-                    if(data.n===1) {
-                        for(let i = 0; i < images.length; i++) {
-                            if(images[i]._id === id) {
-                                images.splice(i,1)
-                            }
-                        }
-                    }
-                }
-            )
-    }*/
-    delImage(id:any) {
-        this.service.delImage(id)
-            .subscribe(
-                res => {console.log(res);
+                res => {
+                    this.toastr.error('Фотография удалена из галереи');
                     this.service.getImages()
-                        .subscribe(images => this.images = images)},
+                        .subscribe(images => this.images = images)
+                },
                 error => this.errorMessage = error,
             )
     }

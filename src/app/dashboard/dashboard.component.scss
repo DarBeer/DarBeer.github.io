@@ -18,10 +18,10 @@ $text-hover: #fff;
 }
 
 .content-wrapper {
-  min-height: calc(100vh - 56px);
+  min-height: calc(100vh - 56px - 56px);
   padding-top: 1rem;
-  margin-top: 56px;
-  overflow-x: hidden;
+  margin: 56px 0;
+  overflow: hidden;
   background: white;
 }
 
@@ -204,8 +204,7 @@ $text-hover: #fff;
 
 @media (min-width: 992px) {
   .content-wrapper {
-    margin-left: 250px;
-    margin-top: 56px;
+    margin: 56px 0 56px 250px;
   }
 }
 
