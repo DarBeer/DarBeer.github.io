@@ -9,9 +9,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { DataService } from "./shared/services/data.service";
+import { ArticleService } from "./shared/services/article.service";
 import { DashboardModule } from "./dashboard/dashboard.module";
 import { WebModule } from "./web/web.module";
 import { LoginModule } from "./login/login.module";
+import 'bootstrap';
 
 
 @NgModule({
@@ -29,7 +31,10 @@ import { LoginModule } from "./login/login.module";
         NgxPaginationModule,
         NgbModule.forRoot()
     ],
-    providers: [DataService],
+    providers: [
+        DataService,
+        ArticleService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
