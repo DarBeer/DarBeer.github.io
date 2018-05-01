@@ -1,8 +1,41 @@
-td {
+thead tr {
+  font-weight: 700;
+}
+td:nth-child(1) {
   width: 20%;
 }
-img {
+td:nth-child(2) {
+  width: 20%;
+}
+td:nth-child(3) {
   width: 40%;
+}
+td:nth-child(4) {
+  width: 15%;
+}
+td:nth-child(5) {
+  width: 5%;
+}
+tr td img {
+  max-width: 300px;
+  max-height: 200px;
+}
+.image-container {
+  label {
+    width: 100%;
+  }
+  .img-preview {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #ccc;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
 }
 .del-btn {
   cursor: pointer;

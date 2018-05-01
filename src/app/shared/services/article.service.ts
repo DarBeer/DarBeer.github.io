@@ -20,27 +20,27 @@ export class ArticleService {
             });
     }
 
-    // GET articles
-    getArticle(id:any): Observable<Article[]> {
+    // GET article
+    getArticle(id:any): Observable<Article> {
         const uri = 'http://localhost:3000/data/articles/' + id;
         return this
             .http
-            .get<Article[]>(uri)
+            .get<Article>(uri)
             .map(res => {
                 return res;
             });
     }
 
     // ADD article
-    addArticle(heading, description, imageName, textAll, img): Observable<Article> {
+    addArticle(heading, description, shortDescription, imageName, img): Observable<Article> {
         const uri = 'http://localhost:3000/data/articles/add';
         const uri_img = 'http://localhost:3000/data/articles/upload';
         const headers = new HttpHeaders();
         const obj = {
             heading: heading,
             description: description,
+            shortDescription: shortDescription,
             urlImage: imageName,
-            textAll: textAll,
             date: Date.now()
         };
         this.http
@@ -54,6 +54,7 @@ export class ArticleService {
             });
     }
 
+    // DELETE article
     delArticle(id:any) {
         const uri = 'http://localhost:3000/data/articles/delete/' + id;
         return this

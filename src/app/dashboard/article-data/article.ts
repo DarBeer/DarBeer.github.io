@@ -2,7 +2,7 @@ export class Article {
     _id: string;
     heading: string;
     description: string;
+    shortDescription: string;
     urlImage: string;
-    textAll: string;
     date: string;
 }

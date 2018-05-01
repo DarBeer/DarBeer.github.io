@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from "../../shared/services/article.service";
 import { FormGroup,  FormBuilder,  Validators } from "@angular/forms";
+import { ToastrService } from 'ngx-toastr';
 import { Article } from "./article";
 
 @Component({
@@ -10,13 +11,16 @@ import { Article } from "./article";
 })
 export class ArticleDataComponent implements OnInit {
 
+    articleTitle = 'Добавить статью';
+
     private errorMessage: string;
     articles: Article[];
     article: Article;
     articleForm: FormGroup;
     imageFile: File = null;
+    imageDef: string ='../../assets/img/noimage.png';
 
-    constructor(private service: ArticleService, private form: FormBuilder) {
+    constructor(private service: ArticleService, private form: FormBuilder, private toastr: ToastrService) {
         this.createForm();
     }
 
@@ -34,24 +38,34 @@ export class ArticleDataComponent implements OnInit {
         this.articleForm = this.form.group({
             heading: ['', Validators.required ],
             description: ['', Validators.required ],
+            shortDescription: ['', Validators.required ],
             urlImage: [''],
-            textAll: ['', Validators.required ],
         });
     }
 
     // GET uploaded file info
-    onSelectedFile(event){
+    onSelectedFile(event) {
         this.imageFile = <File>event.target.files[0];
+
+        // Image preview
+        const reader = new FileReader();
+        reader.onload = (event:any) => {
+            this.imageDef = event.target.result
+        };
+        reader.readAsDataURL(this.imageFile)
     }
 
     // ADD article
-    addArticle(heading, description, imageName, textAll, img) {
+    addArticle(heading, description, shortDescription, imageName, img) {
         img = new FormData();
         img.append('articleImage', this.imageFile, this.imageFile.name);
         imageName = this.imageFile.name;
-        this.service.addArticle(heading, description, imageName, textAll, img)
+        this.service.addArticle(heading, description, shortDescription, imageName, img)
             .subscribe(
-                image => {this.articles.push(this.article);
+                image => {
+                    this.articles.push(this.article);
+                    this.toastr.success('Статья добавлена');
+                    this.articleForm.reset();
                     this.service.getArticles()
                         .subscribe(articles => this.articles = articles)},
                 error => this.errorMessage = error
@@ -62,9 +76,11 @@ export class ArticleDataComponent implements OnInit {
     delArticle(id:any) {
         this.service.delArticle(id)
             .subscribe(
-                res => {console.log(res);
+                res => {
+                    this.toastr.error('Статья удалена');
                     this.service.getArticles()
-                        .subscribe(articles => this.articles = articles)},
+                        .subscribe(article => this.articles = article)
+                },
                 error => this.errorMessage = error,
             )
     }
