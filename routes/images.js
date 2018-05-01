@@ -4,11 +4,14 @@ const Image = require('../models/images');
 const multer  = require('multer');
 
 // GET images
-imageRoutes.route('/').get(function(req, res, next) {
-    Image.find(function (err, images) {
-        if (err) return next(err);
-        res.json(images);
-    });
+imageRoutes.route('/').get((req, res) => {
+    Image.find((err, images) => {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(images);
+        }}
+    );
 });
 
 // ADD image data

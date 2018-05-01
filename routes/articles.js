@@ -4,12 +4,12 @@ const Article = require('../models/articles');
 const multer  = require('multer');
 
 // GET articles
-articleRoutes.route('/').get((req, res, next) => {
-    Article.find(function (err, articles) {
+articleRoutes.route('/').get((req, res) => {
+    Article.find((err, articles) => {
         if (err) {
             res.json(err);
         } else {
-        res.json(articles);
+            res.json(articles);
         }}
     );
 });
@@ -79,8 +79,8 @@ articleRoutes.route('/update/:id').post((req, res) => {
         else {
             article.heading = req.body.heading;
             article.description = req.body.description;
+            article.shortDescription = req.body.shortDescription;
             article.imageUrl = req.body.imageUrl;
-            article.textAll = req.body.textAll;
 
             article.save()
                 .then(
