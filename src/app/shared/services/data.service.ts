@@ -4,14 +4,10 @@ import { Observable } from "rxjs/Observable";
 import { Image } from '../../dashboard/image-data/image';
 import 'rxjs/add/operator/map';
 
-
-
 @Injectable()
 export class DataService {
 
-    constructor(private http: HttpClient) {
-
-    }
+    constructor(private http: HttpClient) { }
 
     // GET images
     getImages(): Observable<Image[]> {
@@ -23,28 +19,6 @@ export class DataService {
                 return res;
             });
     }
-
-
-    /*
-    addImage(heading, description, imageName, uploadImage) {
-        const uri_data = 'http://localhost:3000/data/images/add';
-        const uri_img = 'http://localhost:3000/data/images/upload';
-        const obj = {
-            heading: heading,
-            description: description,
-            urlImage: imageName,
-            date: Date.now()
-        };
-        this.http
-            .post(uri_img, uploadImage)
-            .subscribe(res =>
-                console.log(res));
-        this.http
-            .post(uri_data, obj)
-            .subscribe(res =>
-                console.log(res))
-    }
-    */
 
     // ADD image
     addImage(heading, description, imageName, img): Observable<Image> {
