@@ -14,7 +14,6 @@
 </header>
 
 <!-- Search Filter -->
-<!--
 <div class="container search">
     <div class="row">
         <div class="col-lg-8 mx-auto text-center">
@@ -30,13 +29,12 @@
         </div>
     </div>
 </div>
--->
 
 <!-- Image List -->
 <div class="container-fluid p-0 image-gallery">
     <div class="row no-gutters popup-gallery" >
         <div class="col-lg-3 col-sm-4 col-6 img-hover" *ngFor="let image of images"  (click)="onSelect(image)" >
-            <img alt="" class="img-fluid" id="{{image._id}}" src="../../assets/img/gallery/{{image.urlImage}}">
+            <img alt="" class="img-fluid" id="{{image._id}}" src="../../assets/img/gallery/{{image.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';">
             <div class="img-caption">
                 <h3>{{image.heading}}</h3>
             </div>
@@ -48,15 +46,17 @@
 <ng-template #content let-c="close" let-d="dismiss" >
     <div class="modal-header image-modal">
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">
+                <i class="fa fa-times"></i>
+            </span>
         </button>
     </div>
     <div class="modal-body image-modal" *ngIf="selectedImage"  >
-        <img class="img-preview" src="{{selectedImage.urlImage}}">
+        <img class="img-preview" src="../../assets/img/gallery/{{selectedImage.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';">
     </div>
     <div class="modal-footer image-modal" *ngIf="selectedImage">
         <h4 class="modal-title">{{selectedImage.heading}}</h4>
         <p>{{selectedImage.description}}</p>
-        <p class="date-footnote">Опубликовано: {{selectedImage.date}}</p>
+        <p class="date-footnote">Опубликовано: {{selectedImage.date | date:'dd MMM, yyyy HH:mm'}}</p>
     </div>
 </ng-template>
