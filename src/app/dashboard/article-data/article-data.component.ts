@@ -45,7 +45,11 @@ export class ArticleDataComponent implements OnInit {
 
     // GET uploaded file info
     onSelectedFile(event) {
-        this.imageFile = <File>event.target.files[0];
+        if (<File>event.target.files[0] != null) {
+            this.imageFile = <File>event.target.files[0];
+        } else {
+            this.imageFile = null;
+        }
 
         // Image preview
         const reader = new FileReader();
@@ -58,18 +62,33 @@ export class ArticleDataComponent implements OnInit {
     // ADD article
     addArticle(heading, description, shortDescription, imageName, img) {
         img = new FormData();
-        img.append('articleImage', this.imageFile, this.imageFile.name);
-        imageName = this.imageFile.name;
-        this.service.addArticle(heading, description, shortDescription, imageName, img)
-            .subscribe(
-                image => {
-                    this.articles.push(this.article);
-                    this.toastr.success('Статья добавлена');
-                    this.articleForm.reset();
-                    this.service.getArticles()
-                        .subscribe(articles => this.articles = articles)},
-                error => this.errorMessage = error
-            );
+        if (this.imageFile != null) {
+            img.append('articleImage', this.imageFile, this.imageFile.name);
+            imageName = this.imageFile.name;
+            this.service.addArticle(heading, description, shortDescription, imageName, img)
+                .subscribe(
+                    image => {
+                        this.articles.push(this.article);
+                        this.toastr.success('Статья добавлена');
+                        this.articleForm.reset();
+                        this.service.getArticles()
+                            .subscribe(articles => this.articles = articles);
+                    },
+                    error => this.errorMessage = error
+                );
+        } else {
+            this.service.addArticle(heading, description, shortDescription, imageName, img)
+                .subscribe(
+                    image => {
+                        this.articles.push(this.article);
+                        this.toastr.success('Статья добавлена');
+                        this.articleForm.reset();
+                        this.service.getArticles()
+                            .subscribe(articles => this.articles = articles);
+                    },
+                    error => this.errorMessage = error
+                );
+        }
     }
 
     // DELETE article

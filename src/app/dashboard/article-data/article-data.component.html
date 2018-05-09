@@ -2,11 +2,11 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <td>urlImage</td>
-            <td>heading</td>
-            <td>description</td>
-            <td>shortDescription</td>
-            <td>date</td>
+            <td>Изображение</td>
+            <td>Заголовок</td>
+            <td>Описание</td>
+            <td>Короткое описание</td>
+            <td>Дата</td>
             <td>&nbsp;</td>
         </tr>
         </thead>
@@ -43,7 +43,7 @@
                 <input type="text" class="form-control" formControlName="heading" #heading />
                 <div *ngIf="articleForm.controls['heading'].invalid && (articleForm.controls['heading'].dirty || articleForm.controls['heading'].touched)" class="alert alert-danger">
                     <div *ngIf="articleForm.controls['heading'].errors.required">
-                        Heading is required.
+                        Необходимо заполнить заголовок!
                     </div>
                 </div>
             </div>
@@ -52,27 +52,22 @@
                 <input type="text" class="form-control" formControlName="description" #description/>
                 <div *ngIf="articleForm.controls['description'].invalid && (articleForm.controls['description'].dirty || articleForm.controls['description'].touched)" class="alert alert-danger">
                     <div *ngIf="articleForm.controls['description'].errors.required">
-                        Description is required.
+                        Необходимо заполнить описание!
                     </div>
                 </div>
             </div>
             <div class="form-group col-md-12">
                 <label>Короткое описание</label>
-                <input type="text" class="form-control" formControlName="shortDescription" #shortDescription/>
+                <textarea type="text" class="form-control" formControlName="shortDescription" rows="2" #shortDescription></textarea>
                 <div *ngIf="articleForm.controls['shortDescription'].invalid && (articleForm.controls['shortDescription'].dirty || articleForm.controls['shortDescription'].touched)" class="alert alert-danger">
                     <div *ngIf="articleForm.controls['shortDescription'].errors.required">
-                        Description is required.
+                        Необходимо заполнить короткое описание!
                     </div>
                 </div>
             </div>
             <div class="form-group col-md-12">
                 <label>Загрузка</label>
                 <input type="file" class="form-control" formControlName="urlImage" accept="image/jpeg" (change)="onSelectedFile($event)"  name="galleryImage" #urlImage/>
-                <div *ngIf="articleForm.controls['urlImage'].invalid && (articleForm.controls['urlImage'].dirty || articleForm.controls['urlImage'].touched)" class="alert alert-danger">
-                    <div *ngIf="articleForm.controls['urlImage'].errors">
-                        Image is required.
-                    </div>
-                </div>
             </div>
             <div class="form-group col-md-12">
                 <button type="submit"  [disabled]="articleForm.pristine || articleForm.invalid" class="btn btn-primary">Добавить</button>
