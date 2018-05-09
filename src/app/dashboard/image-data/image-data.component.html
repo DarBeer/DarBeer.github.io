@@ -71,7 +71,7 @@
                 <input type="text" class="form-control" formControlName="heading" #heading />
                 <div *ngIf="imageForm.controls['heading'].invalid && (imageForm.controls['heading'].dirty || imageForm.controls['heading'].touched)" class="alert alert-danger">
                     <div *ngIf="imageForm.controls['heading'].errors.required">
-                        Heading is required.
+                        Необходимо заполнить заголовок!
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                 <input type="text" class="form-control" formControlName="description" #description/>
                 <div *ngIf="imageForm.controls['description'].invalid && (imageForm.controls['description'].dirty || imageForm.controls['description'].touched)" class="alert alert-danger">
                     <div *ngIf="imageForm.controls['description'].errors.required">
-                        Description is required.
+                        Необходимо заполнить описание!
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="form-group col-md-12">
-                <button type="submit"  [disabled]="imageForm.pristine || imageForm.invalid" class="btn btn-primary">Добавить</button>
+                <button type="submit" [disabled]="imageForm.pristine || imageForm.invalid" class="btn btn-primary">Добавить</button>
             </div>
         </div>
         <div class="col-md-6">
