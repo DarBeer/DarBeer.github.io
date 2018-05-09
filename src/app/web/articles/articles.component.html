@@ -13,10 +13,23 @@
     </div>
 </header>
 
-<p>
-  articles works!
-</p>
-
-<ul *ngFor="let article of articles" >
-    <li>{{article._id}} <a routerLink="/articles/{{article._id}}">read more</a></li>
-</ul>
+<div class="container article-list">
+    <div class="row">
+        <div class="col-12 p-0 article-container" *ngFor="let article of articles" >
+            <div class="image-container">
+                <img src="../../../assets/img/gallery/{{article.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';" >
+            </div>
+            <div class="article-content">
+                <div>
+                    <h2>{{article.heading}}</h2>
+                </div>
+                <div class="article-description">
+                    <p>{{article.shortDescription}}</p>
+                </div>
+                <div>
+                    <a routerLink="/articles/{{article._id}}">Читать дальше</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

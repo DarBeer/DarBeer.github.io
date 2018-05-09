@@ -1,3 +1,43 @@
 header.masthead {
   background: #868e96 url("../../../assets/img/header-articles.jpg") center center no-repeat scroll;
 }
+.article-list {
+  margin-bottom: 50px;
+}
+.article-container {
+  height: 300px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  hr {
+    width: 100%;
+    border: 1px #868e96 solid;
+    max-width: 100%;
+  }
+  .image-container {
+    height: 100%;
+    width: 300px;
+  }
+  img {
+    width: inherit;
+    height: 100%;
+    object-fit: cover;
+  }
+  .article-content {
+    width: 100%;
+    display: inherit;
+    flex-direction: column;
+    padding: 15px;
+    .article-description {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .article-container {
+    flex-direction: row;
+  }
+}
