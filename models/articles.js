@@ -5,8 +5,8 @@ const ArticleSchema = mongoose.Schema;
 const Article = new ArticleSchema({
     heading: String,
     description: String,
+    shortDescription: String,
     urlImage: String,
-    text: String,
     date: String
 },{
     collection: 'articles'
