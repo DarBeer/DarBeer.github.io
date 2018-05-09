@@ -21,9 +21,9 @@
             <hr class="my-4">
             <p class="text-faded mb-4">Хотите найти определённый экспонат? Воспользуйтесь поиском</p>
             <form action="" class="input-group">
-                <input type="text" class="form-control" placeholder="Найти...">
+                <input #imgInput type="text" class="form-control" [(ngModel)]="imgString" name="searchImage" placeholder="Найти...">
                 <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                    <button class="btn btn-secondary" type="button" (click)="searchImage(imgInput.value)" ><i class="fa fa-search"></i></button>
                 </span>
             </form>
         </div>
@@ -31,14 +31,31 @@
 </div>
 
 <!-- Image List -->
-<div class="container-fluid p-0 image-gallery">
-    <div class="row no-gutters popup-gallery" >
-        <div class="col-lg-3 col-sm-4 col-6 img-hover" *ngFor="let image of images"  (click)="onSelect(image)" >
+<div class="container-fluid image-gallery">
+    <div class="img-row" >
+        <!--
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-0 img-hover" *ngFor="let image of images" (click)="onSelect(image)" >
             <img alt="" class="img-fluid" id="{{image._id}}" src="../../assets/img/gallery/{{image.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';">
             <div class="img-caption">
                 <h3>{{image.heading}}</h3>
             </div>
             <a class="portfolio-box" (click)="openImage(content)"></a>
+
+        </div>
+        -->
+        <div class="img-hover" *ngFor="let image of images | orderBy:'date':true | paginate: { itemsPerPage: 14, currentPage: p }" (click)="onSelect(image)" >
+            <div class="img-container">
+                <img alt="" class="img-fluid" id="{{image._id}}" src="../../assets/img/gallery/{{image.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';">
+                <div class="img-caption">
+                    <h3>{{image.heading}}</h3>
+                </div>
+                <a class="portfolio-box" (click)="openImage(content)"></a>
+            </div>
+        </div>
+    </div>
+    <div class="row pagination">
+        <div class="col-lg-12">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
 </div>
@@ -51,12 +68,12 @@
             </span>
         </button>
     </div>
-    <div class="modal-body image-modal" *ngIf="selectedImage" >
-        <img class="img-preview" src="../../assets/img/gallery/{{selectedImage.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';">
+    <div class="modal-body image-modal" *ngIf="image" >
+        <img class="modal-img" src="../../assets/img/gallery/{{image.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';">
     </div>
-    <div class="modal-footer image-modal" *ngIf="selectedImage">
-        <h4 class="modal-title">{{selectedImage.heading}}</h4>
-        <p>{{selectedImage.description}}</p>
-        <p class="date-footnote">Опубликовано: {{selectedImage.date | date:'dd MMM, yyyy HH:mm'}}</p>
+    <div class="modal-footer image-modal" *ngIf="image">
+        <h4 class="modal-title">{{image.heading}}</h4>
+        <p class="modal-caption">{{image.description}}</p>
+        <p class="modal-footnote">Опубликовано: {{image.date | date:'dd MMM, yyyy HH:mm'}}</p>
     </div>
 </ng-template>
