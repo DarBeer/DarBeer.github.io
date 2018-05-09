@@ -39,7 +39,7 @@ $Raleway: 'Raleway';
 }
 /* FONTS END */
 
-/* LOADER START */
+/* LOADER */
 #loading {
   height: 100vh;
   display: flex;
@@ -106,7 +106,8 @@ $Raleway: 'Raleway';
       transform: scale3D(0, 0, 1);
     }
 }
-/* LOADER END */
+
+/* ----- */
 
 .custom-bg {
   background: #141E30;
@@ -125,42 +126,72 @@ $Raleway: 'Raleway';
   height: 15px;
 }
 
+/* COMMON */
 h1, h2, h3, h4, h5, h6 {
+  color: $basic;
   font-weight: 800;
   font-family: $Raleway,'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
+p {
+  color: $basic;
+}
+
 hr {
   max-width: 50px;
-  border: 2px #343a40 solid;
+  border: 2px $basic solid;
 }
 hr.light {
   border-color: #fff;
 }
 
-input:focus, button:focus {
+a:hover {
+  text-decoration: none;
+}
+
+a:focus,
+input:focus,
+button:focus,
+textarea:focus {
   outline: 0!important;
   box-shadow: none!important;
 }
-input, button {
+a,
+input,
+button,
+textarea {
   border-radius: 0!important;
 }
+textarea {
+  resize: none;
+}
 
-/* HEADER START */
+/* PAGINATION */
+.pagination {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+.ngx-pagination li {
+
+}
+
+/* HEADER */
 header.masthead {
   margin-bottom: 50px;
   position: relative;
-  -webkit-background-size: cover!important;
-  -moz-background-size: cover!important;
-  -o-background-size: cover!important;
-  background-size: cover!important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   .overlay {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #182848; /* #212529; */
+    background-color: $dark; /* #212529; */
     opacity: .6;
   }
   .page-heading, .site-heading {
@@ -168,11 +199,15 @@ header.masthead {
   }
   .site-heading {
     padding: 200px 0;
-    color: #fff;
+    h1, span {
+      color: #fff;
+    }
   }
   .page-heading, .post-heading {
     padding: 100px 0;
-    color: #fff;
+    h1, span {
+      color: #fff;
+    }
   }
   .page-heading h1 {
     font-size: 30px;
@@ -199,9 +234,8 @@ header.masthead {
     font-size: 70px;
   }
 }
-/* HEADER END */
 
-/* MODAL START */
+/* MODAL */
 .modal-backdrop {
   opacity: .8!important;
 }
@@ -224,4 +258,3 @@ header.masthead {
     }
   }
 }
-/* MODAL END */
