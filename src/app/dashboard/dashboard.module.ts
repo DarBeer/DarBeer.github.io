@@ -21,6 +21,7 @@ import { DashboardComponent } from './dashboard.component';
 import { ImageDataComponent } from './image-data/image-data.component';
 import { VideoDataComponent } from './video-data/video-data.component';
 import { ArticleDataComponent } from './article-data/article-data.component';
+import { FroalaEditorModule } from 'angular-froala-wysiwyg';
 
 const Materials = [
     MatTableModule,
@@ -49,6 +50,7 @@ const Materials = [
             positionClass: 'toast-bottom-right'
         }),
         OrderModule,
+        FroalaEditorModule.forRoot(),
         Materials
     ],
     exports: [

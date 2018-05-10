@@ -17,6 +17,7 @@ export class ArticleDataComponent implements OnInit {
     articles: Article[];
     article: Article;
     articleForm: FormGroup;
+    editorContent: string;
     imageFile: File = null;
     imageDef: string ='../../assets/img/noimage.png';
 
@@ -30,14 +31,14 @@ export class ArticleDataComponent implements OnInit {
             .subscribe(
                 articles => this.articles = articles,
                 error => this.errorMessage = error
-            )
+            );
     }
 
     // Form validation
     createForm() {
         this.articleForm = this.form.group({
             heading: ['', Validators.required ],
-            description: ['', Validators.required ],
+            description: [''],
             shortDescription: ['', Validators.required ],
             urlImage: [''],
         });
@@ -62,13 +63,13 @@ export class ArticleDataComponent implements OnInit {
     // ADD article
     addArticle(heading, description, shortDescription, imageName, img) {
         img = new FormData();
-        if (this.imageFile != null) {
+        if (this.imageFile !== null) {
             img.append('articleImage', this.imageFile, this.imageFile.name);
             imageName = this.imageFile.name;
             this.service.addArticle(heading, description, shortDescription, imageName, img)
                 .subscribe(
-                    image => {
-                        this.articles.push(this.article);
+                    article => {
+                        this.articles.push(article);
                         this.toastr.success('Статья добавлена');
                         this.articleForm.reset();
                         this.service.getArticles()
@@ -79,8 +80,8 @@ export class ArticleDataComponent implements OnInit {
         } else {
             this.service.addArticle(heading, description, shortDescription, imageName, img)
                 .subscribe(
-                    image => {
-                        this.articles.push(this.article);
+                    article => {
+                        this.articles.push(article);
                         this.toastr.success('Статья добавлена');
                         this.articleForm.reset();
                         this.service.getArticles()
