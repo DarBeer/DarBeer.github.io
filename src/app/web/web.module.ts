@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { OrderModule } from "ngx-order-pipe";
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { WebComponent } from './web.component';
 import { HomeComponent } from './home/home.component';
@@ -29,7 +30,8 @@ import { PageComponent } from './articles/page/page.component';
         RouterModule,
         OrderModule,
         FormsModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        FroalaViewModule.forRoot()
     ],
     exports: [
         RouterModule
