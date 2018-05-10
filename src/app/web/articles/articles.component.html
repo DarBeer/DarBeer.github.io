@@ -15,7 +15,7 @@
 
 <div class="container article-list">
     <div class="row">
-        <div class="col-12 p-0 article-container" *ngFor="let article of articles" >
+        <div class="col-12 p-0 article-container" *ngFor="let article of articles | orderBy:'date':true" >
             <div class="image-container">
                 <img src="../../../assets/img/gallery/{{article.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';" >
             </div>

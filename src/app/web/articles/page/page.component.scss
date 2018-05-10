@@ -1,0 +1,26 @@
+header.masthead {
+  background: #868e96 url("../../../../assets/img/header-articles.jpg") center center no-repeat scroll;
+}
+
+.article-wrap {
+  margin-bottom: 50px;
+}
+.articleheading {
+  margin-bottom: 20px;
+  h2 {
+    margin: 0;
+  }
+  span {
+    font-size: 0.75rem;
+    color: #5e6973;
+  }
+}
+
+.sidebar{
+  will-change: min-height;
+}
+
+.sidebar__inner{
+  transform: translate3d(0, 0, 0);
+  will-change: position, transform;
+}

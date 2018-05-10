@@ -1,13 +1,30 @@
-<p>
-  page works!
-</p>
+<!-- Header -->
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <h1>{{heading}}</h1>
+                    <span class="subheading">{{subheading}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-<div>{{article.heading}}</div>
-<div>{{article.description}}</div>
+<div class="container article-wrap">
+    <div class="row">
+        <div class="col-12" >
+            <div class="articleheading">
+                <h2>{{article.heading}}</h2>
+                <span>Опубликовано: {{article.date | date:'dd MMM, yyyy HH:mm'}}</span>
+            </div>
+            <div [froalaView]="article.description"></div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-
-
 
 <button (click)="goBack()">go back</button>

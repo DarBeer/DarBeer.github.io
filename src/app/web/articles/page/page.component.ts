@@ -14,6 +14,8 @@ export class PageComponent implements OnInit {
 
     private errorMessage: string;
 
+    heading = 'Статьи Экспонатов';
+    subheading = 'Статьи и их поиск';
     article: Article = new Article();
 
     constructor(private service: ArticleService, private route: ActivatedRoute, private location: Location) { }
