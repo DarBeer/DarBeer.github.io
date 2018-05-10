@@ -33,16 +33,6 @@
 <!-- Image List -->
 <div class="container-fluid image-gallery">
     <div class="img-row" >
-        <!--
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-0 img-hover" *ngFor="let image of images" (click)="onSelect(image)" >
-            <img alt="" class="img-fluid" id="{{image._id}}" src="../../assets/img/gallery/{{image.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';">
-            <div class="img-caption">
-                <h3>{{image.heading}}</h3>
-            </div>
-            <a class="portfolio-box" (click)="openImage(content)"></a>
-
-        </div>
-        -->
         <div class="img-hover" *ngFor="let image of images | orderBy:'date':true | paginate: { itemsPerPage: 14, currentPage: p }" (click)="onSelect(image)" >
             <div class="img-container">
                 <img alt="" class="img-fluid" id="{{image._id}}" src="../../assets/img/gallery/{{image.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';">
