@@ -59,7 +59,7 @@
             </div>
             <div class="form-group col-md-12">
                 <label>Короткое описание</label>
-                <textarea type="text" class="form-control" formControlName="shortDescription" rows="2" #shortDescription></textarea>
+                <textarea type="text" class="form-control" formControlName="shortDescription" rows="3" #shortDescription></textarea>
                 <div *ngIf="articleForm.controls['shortDescription'].invalid && (articleForm.controls['shortDescription'].dirty || articleForm.controls['shortDescription'].touched)" class="alert alert-danger">
                     <div *ngIf="articleForm.controls['shortDescription'].errors.required">
                         Необходимо заполнить короткое описание!
