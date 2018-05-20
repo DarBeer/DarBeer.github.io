@@ -16,6 +16,23 @@ header.masthead {
   }
 }
 
+.go-home {
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  font-weight: 600;
+  padding: 10px 20px;
+  color: #fff!important;
+  background: #2980b9;
+  i {
+    margin-right: 10px;
+  }
+}
+.go-home:hover {
+   opacity: .5;
+}
+
 .sidebar{
   will-change: min-height;
 }

@@ -17,6 +17,7 @@ export class ArticlesComponent implements OnInit {
     private errorMessage: string;
     articles: Article[];
     article: Article;
+    artString: string;
 
     constructor(private service: ArticleService) {
 
@@ -27,6 +28,25 @@ export class ArticlesComponent implements OnInit {
         this.service.getArticles()
             .subscribe(
                 articles => this.articles = articles,
+                error => this.errorMessage = error
+            )
+    }
+
+    searchArticle(value){
+        if(!value) this.service.getArticles()
+            .subscribe(
+                articles => this.articles = articles,
+                error => this.errorMessage = error
+            );
+        this.service.getArticles()
+            .subscribe(
+                articles => {
+                    this.articles = Object.assign([], articles).filter(
+                        article =>
+                            article.heading.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
+                            article.description.toLowerCase().indexOf(value.toLowerCase()) > -1
+                    )
+                },
                 error => this.errorMessage = error
             )
     }

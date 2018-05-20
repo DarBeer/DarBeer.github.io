@@ -13,23 +13,43 @@
     </div>
 </header>
 
-<div class="container article-list">
+<!-- Search Filter -->
+<div class="container search">
     <div class="row">
-        <div class="col-12 p-0 article-container" *ngFor="let article of articles | orderBy:'date':true" >
-            <div class="image-container">
-                <img src="../../../assets/img/gallery/{{article.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';" >
-            </div>
-            <div class="article-content">
-                <div>
-                    <h2>{{article.heading}}</h2>
-                </div>
-                <div class="article-description">
+        <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">У нас есть прям всё!</h2>
+            <hr class="my-4">
+            <p class="text-faded mb-4">Хотите найти определённый экспонат? Воспользуйтесь поиском</p>
+            <form action="" class="input-group">
+                <input #artInput type="text" class="form-control" [(ngModel)]="artString" name="searchImage" placeholder="Искать статью...">
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button" (click)="searchArticle(artInput.value)" >Найти<i class="fa fa-search"></i></button>
+                </span>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid image-gallery">
+    <div class="art-row" >
+        <div class="art-hover" *ngFor="let article of articles | orderBy:'date':true | paginate: { itemsPerPage: 13, currentPage: p }" >
+            <div class="art-container">
+                <img alt="" class="img-fluid" id="{{article._id}}" src="../../assets/img/articles/{{article.urlImage}}" onError="this.src='../../assets/img/noarticle.jpg';">
+                <div class="art-description">
+                    <h4>{{article.heading}}</h4>
                     <p>{{article.shortDescription}}</p>
                 </div>
-                <div>
-                    <a routerLink="/articles/{{article._id}}">Читать дальше</a>
+                <div class="art-caption">
+                    <span class="art-next"><a routerLink="/articles/{{article._id}}">Читать дальше</a></span>
+                    <span class="art-date">{{article.date | date:'dd MMM, yyyy'}}</span>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row pagination">
+        <div class="col-lg-12">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
 </div>
+
