@@ -49,4 +49,7 @@
     </div>
 </div>
 
+<select [(ngModel)]="sub_planning">
+    <option *ngFor="let c of subdimension" [ngValue]="c.value">{{c.name}}</option>
+</select>
 

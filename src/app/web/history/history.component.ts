@@ -10,6 +10,10 @@ export class HistoryComponent implements OnInit {
     heading = 'История Школы';
     subheading = 'Спать нельзя, читать можно';
 
+    sub_planning = '0';
+    subdimension = [{'name': 'oneabc','value': 1 },
+        {'name': 'twoabc','value': 2}];
+
     constructor() { }
 
     ngOnInit() {

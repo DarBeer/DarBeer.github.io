@@ -21,9 +21,9 @@
             <hr class="my-4">
             <p class="text-faded mb-4">Хотите найти определённый экспонат? Воспользуйтесь поиском</p>
             <form action="" class="input-group">
-                <input #imgInput type="text" class="form-control" [(ngModel)]="imgString" name="searchImage" placeholder="Найти...">
+                <input #imgInput type="text" class="form-control" [(ngModel)]="imgString" name="searchImage" placeholder="Искать фотографию...">
                 <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button" (click)="searchImage(imgInput.value)" ><i class="fa fa-search"></i></button>
+                    <button class="btn btn-secondary" type="button" (click)="searchImage(imgInput.value)" >Найти<i class="fa fa-search"></i></button>
                 </span>
             </form>
         </div>
