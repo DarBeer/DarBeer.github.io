@@ -14,8 +14,8 @@ export class WebComponent implements OnInit {
     linkList  = [
         { name: 'История', link: '/history'},
         { name: 'Статьи', link: '/articles'},
-        { name: 'Галерея', link: '/image-gallery'},
-        { name: 'Видео', link: '/video-gallery'}
+        { name: 'Галерея', link: '/image-gallery'}
+        // , { name: 'Видео', link: '/video-gallery'}
     ];
 
     constructor() { }

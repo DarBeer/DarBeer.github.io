@@ -13,6 +13,7 @@ import { ArticleService } from "./shared/services/article.service";
 import { DashboardModule } from "./dashboard/dashboard.module";
 import { WebModule } from "./web/web.module";
 import { LoginModule } from "./login/login.module";
+import {UserService} from './shared/services/user.service';
 import 'bootstrap';
 
 
@@ -32,6 +33,7 @@ import 'bootstrap';
         NgbModule.forRoot()
     ],
     providers: [
+        UserService,
         DataService,
         ArticleService
     ],

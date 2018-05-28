@@ -12,6 +12,8 @@ import { VideoDataComponent } from "./dashboard/video-data/video-data.component"
 import { ArticleDataComponent } from "./dashboard/article-data/article-data.component";
 import { WebComponent } from "./web/web.component";
 import { LoginComponent } from "./login/login.component";
+// import { UserService } from '../shader/service/user.service';
+import {AuthguardGuard} from "./authguard.guard";
 
 const routes: Routes = [
     { path: '', component: WebComponent, children : [
@@ -23,7 +25,7 @@ const routes: Routes = [
             { path: 'video-gallery', component: VideoGalleryComponent }
         ]
     },
-    { path: 'admin', component: DashboardComponent, children: [
+    { path: 'admin', component: DashboardComponent, canActivate: [AuthguardGuard], children: [
             { path: 'image-data', component: ImageDataComponent },
             { path: 'video-data', component: VideoDataComponent },
             { path: 'article-data', component: ArticleDataComponent }
@@ -34,6 +36,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
+    providers: [AuthguardGuard],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
