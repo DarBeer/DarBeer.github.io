@@ -14,9 +14,9 @@ export class UserService {
   setUserLoggedIn(login, pass) {
       if (login === this.username && pass === this.password) {
           this.isUserLoggedIn = true;
-          this.getUserLoggedIn();
+          return this.getUserLoggedIn();
       } else {
-          this.getUserLoggedIn();
+          return this.getUserLoggedIn();
       }
   }
 

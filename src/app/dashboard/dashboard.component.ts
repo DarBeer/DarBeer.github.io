@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-    title = 'Дипломный Проект';
+    title = 'Виртуальный музей';
     dashboard = 'Главная панель';
     pages = 'Страницы';
     articles = 'Статьи';
     image_gallery = 'Галерея';
-    video_gallery = 'Видео';
+    // video_gallery = 'Видео';
     logout = 'Выйти';
 
     constructor() { }

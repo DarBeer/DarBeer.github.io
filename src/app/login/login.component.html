@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-10 mx-auto loginform shadow-lg">
+            <form [formGroup]="authForm">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Логин</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Логин" formControlName="login">
+                    <small id="emailHelp" class="form-text text-muted">Введите свой логин от учетной записи</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Пароль</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="pass">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary form-control" (click)="LogIn($event)" routerLink="/admin">Войти</button>
+                </div>
+                <button type="submit" class="btn btn-primary form-control" routerLink="/">На главную</button>
+            </form>
+        </div>
+    </div>
+</div>
