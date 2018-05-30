@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebComponent implements OnInit {
 
-    title = 'Дипломный Проект';
+    title = 'Виртуальный музей';
     home = 'Главная';
-    copyright = 'Copyright © Diploma Project 2018';
+    copyright = 'Copyright © ГУО "Средняя школа №2 г. Бобруйска" 2018';
 
     linkList  = [
         { name: 'История', link: '/history'},
