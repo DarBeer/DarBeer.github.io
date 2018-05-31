@@ -9,9 +9,13 @@ import { AuthguardGuard } from '../authguard.guard';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+
 export class LoginComponent implements OnInit {
 
   public authForm: FormGroup;
+  public login: string;
+  public pass: string;
 
   constructor(private form: FormBuilder, private toastr: ToastrService, private auth: AuthguardGuard) {
     this.createForm();
@@ -27,8 +31,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public LogIn(event: Event) {
+  public LogIn(event: Event, log, pas) {
     console.log(this.authForm);
-    this.auth.canActivate(this.authForm.value.login, this.authForm.value.pass);
+    this.login = log;
+    this.pass = pas;
+    this.auth.username = this.login;
+    this.auth.password = this.pass;
+    this.auth.canActivate(null, null);
   }
+
 }

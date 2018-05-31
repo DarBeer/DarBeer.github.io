@@ -31,6 +31,16 @@ export class ArticleService {
             });
     }
 
+    // getArticleLast(): Observable<Article> {
+    //     const uri = 'http://localhost:3000/data/articles/last';
+    //     return this
+    //         .http
+    //         .get<Article>(uri)
+    //         .map(res => {
+    //             return res;
+    //         });
+    // }
+
     // ADD article
     addArticle(heading, description, shortDescription, imageName, img): Observable<Article> {
         const uri = 'http://localhost:3000/data/articles/add';

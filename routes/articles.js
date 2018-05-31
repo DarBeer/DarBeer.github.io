@@ -25,6 +25,17 @@ articleRoutes.route('/:id').get((req, res) => {
     );
 });
 
+// // GET article by last
+// articleRoutes.route('/last').get((req, res) => {
+//     Article.findOne({},{},{ sort: {'created_at': -1}}, (err, article) => {
+//         if (err) {
+//             res.json(err);
+//         } else {
+//             res.json(article);
+//         }}
+//     );
+// });
+
 // ADD article data
 articleRoutes.route('/add').post((req, res) => {
     const newArticle = new Article(req.body);
