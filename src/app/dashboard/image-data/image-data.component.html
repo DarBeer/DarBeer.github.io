@@ -64,7 +64,7 @@
             <div class="col-12 divider-sm"></div>
         </div>
     </div>
-    <form class="row" [formGroup]="imageForm" (submit)="addImage(heading.value, description.value)" novalidate>
+    <form class="row" [formGroup]="imageForm" (submit)="addImage(heading.value, description.value, null, null)" novalidate>
         <div class="col-md-6">
             <div class="form-group col-md-12">
                 <label>Заголовок</label>

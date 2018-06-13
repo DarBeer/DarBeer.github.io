@@ -12,10 +12,10 @@ export class DashboardComponent implements OnInit {
     pages = 'Страницы';
     articles = 'Статьи';
     image_gallery = 'Галерея';
-    // video_gallery = 'Видео';
+    //video_gallery = 'Видео';
     logout = 'Выйти';
 
-    constructor() { }
+    constructor() { this.image_gallery = 'Галерея', this.articles = 'Статьи'; }
 
     ngOnInit() {
     }

@@ -11,13 +11,14 @@ import {Article} from "../../dashboard/article-data/article";
 })
 export class ArticlesComponent implements OnInit {
 
-    heading = 'Статьи Экспонатов';
+    heading = 'Статьи экспонатов';
     subheading = 'Статьи и их поиск';
 
     private errorMessage: string;
     articles: Article[];
     article: Article;
     artString: string;
+    p: string;
 
     constructor(private service: ArticleService) {
 
@@ -33,7 +34,7 @@ export class ArticlesComponent implements OnInit {
     }
 
     searchArticle(value){
-        if(!value) this.service.getArticles()
+        if (!value) this.service.getArticles()
             .subscribe(
                 articles => this.articles = articles,
                 error => this.errorMessage = error

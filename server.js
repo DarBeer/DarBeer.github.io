@@ -6,7 +6,7 @@ const express = require('express'),
     //index = require('./routes/index'),
     images = require('./routes/images'),
     articles = require('./routes/articles'),
-    port = process.env.PORT || 8080,
+    port = process.env.PORT || 3000,
     app = express();
 
 // MongoDB

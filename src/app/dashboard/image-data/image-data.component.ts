@@ -18,6 +18,7 @@ export class ImageDataComponent implements OnInit, AfterViewInit {
     images: Image[];
     image: Image;
     imageForm: FormGroup;
+    p: string;
     imageFile: File = null;
     imageDef: string ='../../assets/img/noimage.png';
     //displayedColumns = ['heading','description','image','date'];

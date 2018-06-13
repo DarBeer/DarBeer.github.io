@@ -11,13 +11,14 @@ import { Image } from "../../dashboard/image-data/image";
 })
 export class ImageGalleryComponent implements OnInit {
 
-    heading = 'Галерея Экспонатов';
+    heading = 'Галерея экспонатов';
     subheading = 'Фотографии и их поиск';
 
     private errorMessage: string;
     images: Image[];
     image: Image;
     imgString: string;
+    p: string;
 
     constructor(private modalService: NgbModal, private service: DataService) {
     }

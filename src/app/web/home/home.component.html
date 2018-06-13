@@ -17,7 +17,7 @@
 <div class="container image-gallery">
     <h2 class="text-center"><span class="art-next"><a routerLink="/articles">Статьи</a></span></h2>
     <div class="art-row" >
-        <div class="art-hover" *ngFor="let article of articles | orderBy:'date':true | paginate: { itemsPerPage: 5, currentPage: p }" >
+        <div class="art-hover" *ngFor="let article of articles | orderBy:'date':true | paginate: { itemsPerPage: 5, currentPage: '' }" >
             <div class="art-container">
                 <img alt="" class="img-fluid" id="{{article._id}}" src="../../assets/img/articles/{{article.urlImage}}" onError="this.src='../../assets/img/noarticle.jpg';">
                 <div class="art-description">
@@ -37,7 +37,7 @@
 <div class="container image-gallery">
     <h2 class="text-center"><span class="art-next"><a routerLink="/image-gallery">Фото</a></span></h2>
     <div class="art-row" >
-        <div class="art-hover" *ngFor="let image of images | orderBy:'date':true | paginate: { itemsPerPage: 5, currentPage: p }" (click)="onSelect(image)" >
+        <div class="art-hover" *ngFor="let image of images | orderBy:'date':true | paginate: { itemsPerPage: 5, currentPage: '' }" (click)="onSelect(image)" >
             <div class="art-container">
                 <img alt="" class="img-fluid" id="{{image._id}}" src="../../assets/img/gallery/{{image.urlImage}}" onError="this.src='../../assets/img/noimage.jpg';">
                 <div class="art-description">
